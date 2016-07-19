@@ -79,6 +79,8 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                                 name: 'matApp',
                                 files: [
                                     'ng/directives/dashboard/dashboard.js',
+                                    'ng/directives/dashboard/header/header.js',
+                                    'ng/directives/dashboard/footer/footer.js',
                                 ]
                             })
                     }

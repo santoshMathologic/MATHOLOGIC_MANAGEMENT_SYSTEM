@@ -16,17 +16,4 @@ var userSchema = new mongoose.Schema({
 });
 
 
-
-/// find the Existing users using Query
-userSchema.methods.findUsers = function(req,res){ 
-    userSchema.find({}, function (err, post) {
-      if (err) console.log(err);
-      res.json(post);
-
-    });
-
-}
-
-
-
 module.exports = mongoose.model('user', userSchema);

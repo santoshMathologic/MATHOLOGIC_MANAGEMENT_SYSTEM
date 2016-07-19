@@ -1,8 +1,8 @@
 angular.module('matApp')
-    .directive('customHeader', ['$compile', function($compile) {
+    .directive('sidebar', ['$compile', function($compile) {
         return {
             restrict: 'E',
-            templateUrl: 'ng/directives/dashboard/header/header.tmpl.html',
+            templateUrl: 'ng/directives/dashboard/sidebar/sidebar.tmpl.html',
             controller: function($scope, $state, $http, $log, $q, $timeout, $window) {
                 
                 

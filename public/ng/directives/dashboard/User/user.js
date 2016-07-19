@@ -28,6 +28,22 @@ angular.module('matApp')
 
                 $scope.getUserList();
 
+                $scope.$watch('query', function(newValue, oldValue) {
+                    if (!oldValue) {
+                        bookmark = $scope.query.page;
+                    }
+
+                    if (newValue !== oldValue) {
+                        $scope.query.page = newValue.page;
+                    }
+
+                    if (!newValue) {
+                        $scope.query.page = bookmark;
+                    }
+
+                      $scope.getUserList();
+                }, true);
+
 
 
             }

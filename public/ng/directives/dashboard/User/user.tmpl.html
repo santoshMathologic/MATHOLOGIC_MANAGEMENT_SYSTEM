@@ -12,7 +12,21 @@
         <div id="tab-one" class="tab-pane active">
             <br>
             <div class="panel panel-default">
-                <div class="panel-heading">User List</div>
+                <div class="panel-heading">User List
+
+                    <div class="input-group pull-right">
+                        <div class="form-group">
+                            <label class="col-lg-8 control-label">Item Per Page(1-100)</label>
+                            <div class="col-lg-4">
+                                <input name="limit" class="input-sm form-control pull-right ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min"
+                                    min="1" max="100" value="5" step="1" type="number" ng-model-options="{ debounce: 1000 }"
+                                    ng-model="query.limit">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
                 <div class="panel-body">
                     <table class="table table-hover table-condensed table-responsive">
                         <thead>
@@ -39,8 +53,9 @@
                                 <td>{{t.email}}</td>
                                 <td>{{t.roleCode}}</td>
                                 <!--<td ng-class="t.userActive? 'user_active' : 'user_deactive'">{{(t.userActive)?'yes':'No'}}</td> !-->
-                                <td><div ng-class="(t.userActive ? 'user_active' : 'user_deactive')"></div> {{(t.userActive)?'yes':'No'}} </td> 
-                                
+                                <td>
+                                    <div ng-class="(t.userActive ? 'user_active' : 'user_deactive')"></div> {{(t.userActive)?'yes':'No'}} </td>
+
                                 <td>
                                     <button class="btn btn-primary btn-sm">
                                          <i class="fa fa-trash" aria-hidden="true"></i>

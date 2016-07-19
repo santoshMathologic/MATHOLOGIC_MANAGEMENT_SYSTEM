@@ -145,3 +145,118 @@
     transition: 0s
     
 }
+
+
+.light_red_btn_sm {
+    position: relative;
+    background-color:rgb(217,83,79);
+    border: none;
+    
+    color: #FFFFFF;
+    padding: 0px 0px;
+    width: 38px;
+    height: 29px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.light_red_btn_sm:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.light_red_btn_sm:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+    
+}
+
+.light_blue_btn_sm {
+    position: relative;
+    background-color:rgb(49,176,213);
+    border: none;
+    
+    color: #FFFFFF;
+    padding: 0px 0px;
+    width: 38px;
+    height: 29px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.light_blue_btn_sm:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.light_blue_btn_sm:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+    
+}
+
+.light_green_btn_sm {
+    position: relative;
+    background-color: #4CAF50;
+    border: none;
+    
+    color: #FFFFFF;
+    padding: 0px 0px;
+    width: 38px;
+    height: 29px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.light_green_btn_sm:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.light_green_btn_sm:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+    
+}

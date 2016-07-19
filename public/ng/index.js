@@ -86,6 +86,22 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                             })
                     }
                 }
+            }).state('home.dashboard.users',
+            {
+                templateUrl: 'ng/directives/dashboard/User/user.directive.html',
+                url: '/users',
+                resolve: {
+                    loadMyDirectives: function($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'matApp',
+                                files: [
+                                    'ng/directives/dashboard/User/user.js'
+
+                                ]
+                            })
+                    }
+                }
             })
 
 

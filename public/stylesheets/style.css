@@ -13,3 +13,22 @@ body{
   top:-200px;
   left: 200px;
 }
+
+.user_active
+{
+  width: 20px;
+	height: 20px;
+	background: green;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+
+}
+.user_deactive{
+  width: 20px;
+	height: 20px;
+	background: red;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}

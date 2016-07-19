@@ -1,25 +1,74 @@
-
 <div>
 
 
-<ul class="nav nav-tabs">
+    <ul class="nav nav-tabs">
         <li class="active"><a data-target="#tab-one" data-toggle="tab">Tabs</a></li>
-        <li ><a data-target="#tab-two" data-toggle="tab">Tabs2</a></li>
+        <li><a data-target="#tab-two" data-toggle="tab">Tabs2</a></li>
         <li><a data-target="#tab-three" data-toggle="tab">Tabs3</a></li>
         <li><a href="#">Menu 3</a></li>
     </ul>
 
-  <div class="tab-content">
-    <div id="tab-one" class="tab-pane active">
-        <h1>User</h1>
+    <div class="tab-content">
+        <div id="tab-one" class="tab-pane active">
+            <br>
+            <div class="panel panel-default">
+                <div class="panel-heading">User List</div>
+                <div class="panel-body">
+                    <table class="table table-hover table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th>SlNo</th>
+                                <th>UserName</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>password</th>
+                                <th>email</th>
+                                <th>roleCode</th>
+                                <th>userActive</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="t in trainsList">
+                                <td>{{$index+1}}</td>
+                                <td>{{t.userName}}</td>
+                                <td>{{t.firstName}}</td>
+                                <td>{{t.lastName}}</td>
+                                <td>{{t.password}}</td>
+                                <td>{{t.email}}</td>
+                                <td>{{t.roleCode}}</td>
+                                <!--<td ng-class="t.userActive? 'user_active' : 'user_deactive'">{{(t.userActive)?'yes':'No'}}</td> !-->
+                                <td><div ng-class="(t.userActive ? 'user_active' : 'user_deactive')"></div> {{(t.userActive)?'yes':'No'}} </td> 
+                                
+                                <td>
+                                    <button class="btn btn-primary btn-sm">
+                                         <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="btn btn-success btn-sm">
+                                         <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm">
+                                         <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="tab-two" class="tab-pane">
+            <h2>Tab 2</h2>
+        </div>
+        <div id="tab-three" class="tab-pane">
+            <h2>Tab 3</h2>
+        </div>
     </div>
-    <div id="tab-two" class="tab-pane">
-        <h2>Tab 2</h2>
-    </div>
-    <div id="tab-three" class="tab-pane">
-        <h2>Tab 3</h2>
-    </div>
-</div>
 
 
 </div>

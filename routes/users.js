@@ -9,16 +9,19 @@ router.get('/', function (req, res, next) {
 
 router.get('/api/v1/admin/users', function (req, res) {
 
+
   var options = {
-    perPage: 10,
-    delta: 3,
-    page: req.query.p
+    perPage: parseInt(req.query.limit) || 10,
+    page: parseInt(req.query.page) || 1,
+    sortBy: req.query.sortBy || 'userName'
   };
 
-  var query = User.find({}).sort('userName');
+  var query = User.find({}).sort(options.sortBy);
   query.paginate(options, function (err, result) {
     res.json(result);
   });
+
+
 });
 
 module.exports = router;

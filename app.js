@@ -8,6 +8,7 @@ var db = require('./database/db');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var trainstation = require('./routes/trainStation');
 
 var app = express();
 
@@ -23,8 +24,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// all routes defined here
 app.use('/', routes);
 app.use('/users', users);
+app.use('/trainStations',trainstation);
 
 
 

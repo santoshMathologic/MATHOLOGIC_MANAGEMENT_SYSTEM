@@ -7,3 +7,5 @@
 
 - Roles Routes-
 
+- trainStation-
+1. http://localhost:3000/trainStations/api/v1/trainStations?limit=10&page=1&sortBy=trainNo

@@ -102,7 +102,22 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                             })
                     }
                 }
+            }).state('home.dashboard.userPlans',{
+               templateUrl:"ng/directives/dashboard/UserPlan/userPlan.directive.html",
+               url:"/userPlan",
+               resolve:{
+                    loadMyDirectives:function($ocLazyLoad){
+                        return $ocLazyLoad.load({
+                            name:"matApp",
+                            files : [
+                                'ng/directives/dashboard/UserPlan/userPlan.js',
+                            ]
+                        })   
+                    }
+               }
             })
+
+
 
 
     }]);

@@ -63,7 +63,8 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                             {
                                 name: 'matApp',
                                 files: [
-                                    'ng/directives/login/login.js'
+                                    'ng/directives/login/login.js',
+                                     'ng/service/loginService.js'
                                 ]
                             })
                     }

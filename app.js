@@ -27,6 +27,39 @@ app.use('/', routes);
 app.use('/users', users);
 
 
+
+var raw_port = process.env.PORT;
+
+process.argv.forEach(function (val, index, array) {
+  var port_i = val.search(/^port=/i);
+  if (port_i > -1) {
+    raw_port = val.substring(port_i + 5, val.length);
+    console.log("raw_port : " + raw_port);
+  }
+});
+
+var port = normalizePort(raw_port || '3000');
+app.set('port', port);
+
+
+var server = app.listen(port, function () {
+  console.log('Server listening on url: http://localhost:' + port);
+});
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
 app.all('/*', function (req, res, next) {
   // CORS headers
   res.header("Access-Control-Allow-Origin", req.headers.origin); // restrict it to the required domain
@@ -43,7 +76,7 @@ app.all('/*', function (req, res, next) {
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -54,7 +87,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -65,7 +98,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,

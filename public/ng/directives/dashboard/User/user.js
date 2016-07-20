@@ -28,7 +28,7 @@ angular.module('matApp')
 
                 $scope.getUserList();
 
-                $scope.$watch('query', function(newValue, oldValue) {
+                $scope.$watch('query', function (newValue, oldValue) {
                     if (!oldValue) {
                         bookmark = $scope.query.page;
                     }
@@ -41,8 +41,27 @@ angular.module('matApp')
                         $scope.query.page = bookmark;
                     }
 
-                      $scope.getUserList();
+                    $scope.getUserList();
                 }, true);
+
+
+
+
+                $scope.test = function () {
+                    var nonDBFieldsArray = ['limit', 'page', 'order', 'sectionType'];
+                    var numberFilterArray = ['stopNo', 'dayOfJourney', 'distance', 'startDay'];
+                    var booleanFields = ['isLocoChange', 'markDelete'];
+                    var dbArrayFields = ['passingStations'];
+
+                      for(var query in nonDBFieldsArray){
+
+                           if(nonDBFieldsArray.indexOf(query) === -1){
+                               console.log(nonDBFieldsArray[query]);
+                           }
+
+                      }
+                }
+                    $scope.test(); 
 
 
 

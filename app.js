@@ -6,9 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./database/db');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var trainstation = require('./routes/trainStation');
+var routes              = require('./routes/index');
+var users               = require('./routes/users');
+var trainstation        = require('./routes/trainStation');
+var plan                = require ('./routes/plan.js');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/trainStations',trainstation);
+app.use('/plans',plan);
 
 
 

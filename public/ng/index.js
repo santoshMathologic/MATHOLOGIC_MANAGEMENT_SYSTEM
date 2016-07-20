@@ -36,6 +36,7 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
         });
 
 
+
         $urlRouterProvider.otherwise('/home/dashboard');
         $stateProvider
             .state('home', {
@@ -63,8 +64,25 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                             {
                                 name: 'matApp',
                                 files: [
+                                    'ng/service/loginService.js',
                                     'ng/directives/login/login.js',
-                                     'ng/service/loginService.js'
+
+                                ]
+                            })
+                    }
+                }
+            })
+            .state('home.register', {
+                templateUrl: 'ng/directives/register/register.directive.html',
+                url: '/register',
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'matApp',
+                                files: [
+                                    'ng/directives/register/register.js',
+
                                 ]
                             })
                     }
@@ -83,6 +101,7 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                                     'ng/directives/dashboard/header/header.js',
                                     'ng/directives/dashboard/footer/footer.js',
                                     'ng/directives/dashboard/sidebar/sidebar.js',
+
                                 ]
                             })
                     }
@@ -92,7 +111,7 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                 templateUrl: 'ng/directives/dashboard/User/user.directive.html',
                 url: '/users',
                 resolve: {
-                    loadMyDirectives: function($ocLazyLoad) {
+                    loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load(
                             {
                                 name: 'matApp',
@@ -103,22 +122,29 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                             })
                     }
                 }
-            }).state('home.dashboard.userPlans',{
-               templateUrl:"ng/directives/dashboard/UserPlan/userPlan.directive.html",
-               url:"/userPlan",
-               resolve:{
-                    loadMyDirectives:function($ocLazyLoad){
+            }).state('home.dashboard.userPlans', {
+                templateUrl: "ng/directives/dashboard/UserPlan/userPlan.directive.html",
+                url: "/userPlan",
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
-                            name:"matApp",
-                            files : [
+                            name: "matApp",
+                            files: [
                                 'ng/directives/dashboard/UserPlan/userPlan.js',
                             ]
-                        })   
+                        })
                     }
-               }
-            })
+                }
+            }).state('home.Opportunity', {
+                url: '/Opportunity',
+                templateUrl: '/ng/directives/create.html',
+                controller:function($scope){
 
 
-
+                    
+                    console.log("In opportunity");
+                }
+               
+            });
 
     }]);

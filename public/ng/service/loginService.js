@@ -1,15 +1,16 @@
-angular.module('matApp').factory('loginService', function ($scope, $http, $state, $resource) {
-
+var app = angular.module('matApp');
+app.factory('AuthFactory', function ($state, $window, $http) {
     var auth = {
+        doLogin: function (username, password) {
 
-        dologin: function (userName, password) {
+            console.log(""+username);
+            console.log(""+password);
+        },
 
-            console.log("" + userName);
-            console.log("" + password);
-
-
+        logout: function () {
         }
-
     }
     return auth;
 });
+
+

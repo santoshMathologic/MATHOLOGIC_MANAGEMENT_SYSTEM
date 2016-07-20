@@ -3,9 +3,9 @@ angular.module('matApp')
         return {
             restrict: 'E',
             templateUrl: 'ng/directives/login/login.tmpl.html',
-            controller: function ($scope, $state, $window, $location,loginService) {
+            controller: function ($scope, $state, $window, $location,AuthFactory) {
 
-                var userObj ={
+                 $scope.userObj ={
                   username : "",
                   password :""
 
@@ -13,8 +13,8 @@ angular.module('matApp')
 
 
                 $scope.login = function () {
-                    loginService.doLogin(userObj.username,userObj.password);
-                    $state.go('home.dashboard');
+                    AuthFactory.doLogin($scope.userObj.username,$scope.userObj.password);
+                  //  $state.go('home.dashboard');
 
                 }
 

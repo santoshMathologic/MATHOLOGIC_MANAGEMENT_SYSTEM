@@ -10,5 +10,61 @@
     </ul>
 
 
-    
+    <div class="panel panel-default">
+        <div class="panel-heading">TimeTable List
+
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover table-condensed table-responsive">
+                <thead>
+                    <tr>
+                       
+                        <th>S.No.</th>
+                        <th>Station Code</th>
+                        <th>Station Name</th>
+                        <th>Arrival</th>
+                        <th>Departure</th>
+                        <th>Day</th>
+                        <th>Day-of-Journey</th>
+                        <th>Distance(KM)</th>
+                        <th>Duration(In Min)</th>
+                       
+
+
+                    </tr>
+
+                    
+
+
+                </thead>
+                <tbody>
+                    <tr ng-repeat="train in trainsList">
+                        
+                        <td>{{$index+1}}</td>
+                        <td>{{train.trainNo}}</td>
+                        <td>{{train.trainName | limitTo : 20}}</td>
+                        <td>{{train.runningDays.length}}</td>
+                        <td>{{train.trainType}}</td>
+                        <td>{{train.fromStation}}</td>
+                        <td>{{train.toStation}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody ng-show="true">
+                    <tr style="height:200px">
+                        <td colspan="11" class="text-center"><i class="fa fa-spinner fa-4x fa-pulse"> </i> Loading Trains...</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="9" class="text-center">
+                            <!--<div st-items-by-page="itemsPerPage" st-pagination="" st-template="scripts/directives/pagination/pagination.custom.html"></div> !-->
+                        </td>
+                    </tr>
+                </tfoot>
+
+            </table>
+        </div>
+    </div>
 </div>

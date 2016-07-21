@@ -8,6 +8,9 @@ angular.module('matApp').directive('trainTime', ['$compile', function ($compiler
             $scope.trainNo = ($state.params.trainNo) ? $state.params.trainNo : '';
             $scope.startDay = ($state.params.startDay) ? $state.params.startDay : '';
 
+            console.log($scope.trainNo)
+            console.log($scope.startDay);
+
 
 
         }

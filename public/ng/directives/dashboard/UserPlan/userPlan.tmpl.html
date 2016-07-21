@@ -46,10 +46,9 @@
                                     <td>{{$index+1}}</td>
                                     <td>{{userplan.planName}}</td>
                                     <td>{{userplan.owner}}</td>
-                                    <td>{{userplan.createdTime}}</td>
-                                    <td>{{userplan.isUnderReview}}</td>
+                                    <td>{{userplan.createdTime | date:'medium'}}</td>
                                     <td>
-                                        <div ng-class="(userplan.isComplete ? 'user_active' : 'user_deactive')"></div> {{(userplan.isComplete)?'yes':'No'}} </td>
+                                        <div ng-class="(userplan.isUnderReview ? 'user_active' : 'user_deactive')"></div> {{(userplan.isUnderReview)?'yes':'No'}} </td>
 
                                     <td>
                                         <button class="light_red_btn_sm">

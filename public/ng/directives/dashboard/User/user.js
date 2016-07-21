@@ -55,7 +55,7 @@ angular.module('matApp')
                 $scope.headStationSelected;
 
                 $scope.getHeadStation = function (searchquery, timeout) {
-                    return $http.get("http://localhost:3000/stations/api/v1/stationsByQuery/"+searchquery);
+                    return $http.get("http://localhost:3000/api/v1/stations/stationsByQuery/" + searchquery);
 
                 }
 

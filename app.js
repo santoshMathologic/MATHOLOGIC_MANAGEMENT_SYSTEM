@@ -15,6 +15,7 @@ var station = require('./routes/station.js');
 var division = require('./routes/division.js');
 var traintype = require('./routes/trainType.js');
 var crewType = require('./routes/crewType.js');
+var role = require('./routes/role.js');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use('/trains', train);
 app.use('/divisions',division);
 app.use('/trainTypes',traintype);
 app.use('/crewTypes',crewType);
+app.use('/roles',role);
 
 
 

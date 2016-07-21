@@ -224,6 +224,22 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                         })
                     }
                 }
+            }).state('home.dashboard.crewType', {
+                url: '/crewtype',
+                controller: 'crewTypeCtrl',
+                templateUrl: 'ng/directives/dashboard/crewType/crewType.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/crewType/crewType.js',
+                                'ng/controllers/crewType.js'
+
+                            ]
+                        })
+                    }
+                }
             })
 
             .state('home.Opportunity', {

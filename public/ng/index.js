@@ -179,6 +179,35 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                         })
                     }
                 }
+            }).state('home.dashboard.divisions', {
+                url: '/division',
+                controller: 'divisionCtrl',
+                templateUrl: 'ng/directives/dashboard/division/division.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/division/division.js',
+                                'ng/controllers/division.js'
+                            ]
+                        })
+                    }
+                }
+            }).state('home.dashboard.smalldashboard', {
+                url: '/dashboard',
+                templateUrl: 'ng/directives/dashboard/smalldashboard/smalldashboard.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/smalldashboard/smalldashboard.js',
+                                
+                            ]
+                        })
+                    }
+                }
             }).state('home.Opportunity', {
                 url: '/Opportunity',
                 templateUrl: '/ng/directives/create.html',

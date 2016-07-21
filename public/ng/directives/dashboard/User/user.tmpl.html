@@ -129,8 +129,8 @@
                         <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label>Role </label> <select class="form-control" ng-model="userdetails._ref.role" ng-required="true"
-                                    name="role" ng-options="role.name for role in roles">
+                                <label>Role </label> <select class="form-control" ng-model="userdetails.role" ng-required="true"
+                                    name="role" ng-options="role.roleCode for role in roles">
 						<option value="" selected>--Select Role--</option>
 
 					</select> <span style="color: red" ng-show="(submitClass=='ng-submitted') || (submitClass!='hide-errors' && userForm.role.$dirty && userForm.role.$invalid)">

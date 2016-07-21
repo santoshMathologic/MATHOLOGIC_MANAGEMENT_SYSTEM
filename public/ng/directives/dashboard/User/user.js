@@ -30,6 +30,28 @@ angular.module('matApp')
 
                 $scope.getUserList();
 
+                $scope.getRole = function () {
+                    $scope.roles = [];
+                    var apiRole = "http://localhost:3000/roles/api/v1/roles"
+                    $scope.query = {
+                        sortBy: 'roleCode',
+                        limit: 10,
+                        page: 1,
+
+                    };
+
+                    $http.get(apiRole, {params:$scope.query})
+                        .then(function (response) {
+                            $scope.roles = response.data.results;
+                            $scope.currentPage = response.data.current;
+                            $scope.perPage = response.data.options.perPage;
+                            $scope.totalPages = response.data.last;
+                            $scope.totalRecords = response.data.count;
+                        });
+
+                }
+                $scope.getRole();
+
                 $scope.$watch('query', function (newValue, oldValue) {
                     if (!oldValue) {
                         bookmark = $scope.query.page;

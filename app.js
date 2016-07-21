@@ -7,15 +7,7 @@ var bodyParser = require('body-parser');
 var db = require('./database/db');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var trainstation = require('./routes/trainStation');
-var plan = require('./routes/plan.js');
-var train = require('./routes/train.js');
-var station = require('./routes/station.js');
-var division = require('./routes/division.js');
-var traintype = require('./routes/trainType.js');
-var crewType = require('./routes/crewType.js');
-var role = require('./routes/role.js');
+
 
 var app = express();
 
@@ -32,17 +24,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-// all routes defined here
+
 app.use('/', routes);
-app.use('/users', users);
-app.use('/stations', station);
-app.use('/trainStations', trainstation);
-app.use('/plans', plan);
-app.use('/trains', train);
-app.use('/divisions',division);
-app.use('/trainTypes',traintype);
-app.use('/crewTypes',crewType);
-app.use('/roles',role);
+
 
 
 

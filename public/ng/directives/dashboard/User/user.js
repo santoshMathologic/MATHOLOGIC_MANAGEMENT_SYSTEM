@@ -3,7 +3,7 @@ angular.module('matApp')
         return {
             restrict: 'E',
             templateUrl: 'ng/directives/dashboard/User/user.tmpl.html',
-            controller: function ($scope, $state, $window, $location, $http, toaster) {
+            controller: function ($scope, $state, $window,$log, $q, $timeout,$location, $http, toaster) {
 
                 $scope.userdetails = {};
 
@@ -40,7 +40,7 @@ angular.module('matApp')
 
                     };
 
-                    $http.get(apiRole, {params:$scope.query})
+                    $http.get(apiRole, { params: $scope.query })
                         .then(function (response) {
                             $scope.roles = response.data.results;
                             $scope.currentPage = response.data.current;
@@ -51,6 +51,13 @@ angular.module('matApp')
 
                 }
                 $scope.getRole();
+
+                $scope.headStationSelected;
+
+                $scope.getHeadStation = function (searchquery, timeout) {
+                    return $http.get("http://localhost:3000/stations/api/v1/stationsByQuery/"+searchquery);
+
+                }
 
                 $scope.$watch('query', function (newValue, oldValue) {
                     if (!oldValue) {

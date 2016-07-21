@@ -3,24 +3,39 @@ var router = express.Router();
 var stations = require('../models/stations.js');
 require('mongoose-query-paginate');
 
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
-});
 
-router.get('/api/v1/stations', function (req, res) {
+var station = {
 
-  var options = {
-    perPage: parseInt(req.query.limit) || 10,
-    page: parseInt(req.query.page) || 1,
-    sortBy: req.query.sortBy || 'stationCode'
-  };
+  getStations: function (req, res) {
+    var options = {
+      perPage: parseInt(req.query.limit) || 10,
+      page: parseInt(req.query.page) || 1,
+      sortBy: req.query.sortBy || 'stationCode'
+    };
 
-  var query = stations.find({}).sort(options.sortBy);
-  query.paginate(options, function (err, result) {
-    res.json(result);
-  });
+    var query = stations.find({}).sort(options.sortBy);
+    query.paginate(options, function (err, result) {
+      res.json(result);
+    });
 
 
-});
+  },
 
-module.exports = router;
+  getStationsByQuery: function (req, res) {
+    if (req.params.searchQuery) {
+      stations.find({ "code": { '$regex': req.params.searchQuery, $options: 'i' } }).then(function (result) {
+        res.json(result);
+      });
+    }
+  },
+
+
+   createStation:function(req,res){
+
+
+   },
+}
+
+
+
+module.exports = station;

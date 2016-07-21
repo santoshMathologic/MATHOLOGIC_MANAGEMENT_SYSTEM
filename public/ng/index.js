@@ -9,6 +9,10 @@ var api = {
     registerUrl: '/register'
 };
 
+var apiUrl = {};
+apiUrl.protocol  = "http";
+apiUrl.server    = "localhost";
+
 var apiUrl = api.protocol + '://' + api.server + ':' + api.port + api.baseUrl;
 var apiLoginUrl = api.protocol + '://' + api.server + ':' + api.port + api.loginUrl;
 var apiRegisterUrl = api.protocol + '://' + api.server + ':' + api.port + api.registerUrl;

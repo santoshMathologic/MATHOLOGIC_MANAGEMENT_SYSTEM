@@ -10,6 +10,7 @@ var routes              = require('./routes/index');
 var users               = require('./routes/users');
 var trainstation        = require('./routes/trainStation');
 var plan                = require ('./routes/plan.js');
+var train               = require('./routes/train.js');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/trainStations',trainstation);
 app.use('/plans',plan);
+app.use('/trains',train);
 
 
 

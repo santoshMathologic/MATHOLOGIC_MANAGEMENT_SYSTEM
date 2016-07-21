@@ -10,8 +10,8 @@ var api = {
 };
 
 var apiUrl = {};
-apiUrl.protocol  = "http";
-apiUrl.server    = "localhost";
+apiUrl.protocol = "http";
+apiUrl.server = "localhost";
 
 var apiUrl = api.protocol + '://' + api.server + ':' + api.port + api.baseUrl;
 var apiLoginUrl = api.protocol + '://' + api.server + ':' + api.port + api.loginUrl;
@@ -29,7 +29,10 @@ var app = angular
         'ngResource',
         'ngSanitize',
         'ngAnimate',
-        'ngCookies'
+        'ngCookies',
+        'angucomplete-alt',
+        'angular-confirm',
+        'toaster',
 
     ]);
 app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',

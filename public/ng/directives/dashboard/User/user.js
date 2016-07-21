@@ -3,7 +3,9 @@ angular.module('matApp')
         return {
             restrict: 'E',
             templateUrl: 'ng/directives/dashboard/User/user.tmpl.html',
-            controller: function ($scope, $state, $window, $location, $http) {
+            controller: function ($scope, $state, $window, $location, $http, toaster) {
+
+                $scope.userdetails = {};
 
                 $scope.query = {
                     sortBy: 'userName',
@@ -46,6 +48,20 @@ angular.module('matApp')
 
 
 
+                $scope.saveUser = function (userobj) {
+
+                    console.log("" + userobj.username);
+                    toaster
+                        .pop({
+                            type: 'success',
+                            title: 'User Save Successfully!!!!!',
+                            body: 'User Save Successfully!!!!! !!!'
+                        });
+
+
+                }
+
+
 
                 $scope.test = function () {
                     var nonDBFieldsArray = ['limit', 'page', 'order', 'sectionType'];
@@ -53,15 +69,15 @@ angular.module('matApp')
                     var booleanFields = ['isLocoChange', 'markDelete'];
                     var dbArrayFields = ['passingStations'];
 
-                      for(var query in nonDBFieldsArray){
+                    for (var query in nonDBFieldsArray) {
 
-                           if(nonDBFieldsArray.indexOf(query) === -1){
-                               console.log(nonDBFieldsArray[query]);
-                           }
+                        if (nonDBFieldsArray.indexOf(query) === -1) {
+                            console.log(nonDBFieldsArray[query]);
+                        }
 
-                      }
+                    }
                 }
-                    $scope.test(); 
+                $scope.test();
 
 
 

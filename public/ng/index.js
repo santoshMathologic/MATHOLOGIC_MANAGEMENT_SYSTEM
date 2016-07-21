@@ -101,6 +101,7 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                                     'ng/directives/dashboard/header/header.js',
                                     'ng/directives/dashboard/footer/footer.js',
                                     'ng/directives/dashboard/sidebar/sidebar.js',
+                                    'ng/directives/dashboard/verticalMenu/verticalMenu.js',
 
                                 ]
                             })

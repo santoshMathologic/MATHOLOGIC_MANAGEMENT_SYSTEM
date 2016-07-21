@@ -203,12 +203,30 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                             name: 'matApp',
                             files: [
                                 'ng/directives/dashboard/smalldashboard/smalldashboard.js',
-                                
+
                             ]
                         })
                     }
                 }
-            }).state('home.Opportunity', {
+            }).state('home.dashboard.trainType', {
+                url: '/type',
+                controller: 'trainTypeCtrl',
+                templateUrl: 'ng/directives/dashboard/trainType/trainType.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/trainType/trainType.js',
+                                'ng/controllers/trainType.js'
+
+                            ]
+                        })
+                    }
+                }
+            })
+
+            .state('home.Opportunity', {
                 url: '/Opportunity',
                 templateUrl: '/ng/directives/create.html',
                 controller: function ($scope) {

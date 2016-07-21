@@ -136,6 +136,19 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                         })
                     }
                 }
+            }).state('home.dashboard.train', {
+                templateUrl: "ng/directives/dashboard/train/train.directive.html",
+                url: "/train",
+                resolve: {
+                    loadMyDirectives: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: "matApp",
+                            files: [
+                                'ng/directives/dashboard/train/train.js',
+                            ]
+                        })
+                    }
+                }
             }).state('home.Opportunity', {
                 url: '/Opportunity',
                 templateUrl: '/ng/directives/create.html',

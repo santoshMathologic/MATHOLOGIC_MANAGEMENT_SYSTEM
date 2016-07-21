@@ -4,7 +4,7 @@ var crewtype = require('../models/crewType.js');
 require('mongoose-query-paginate');
 
 var crewType = {
-  getCrewType: function (res, req) {
+  getCrewType: function (req, res) {
     var options = {
       perPage: parseInt(req.query.limit) || 10,
       page: parseInt(req.query.page) || 1,

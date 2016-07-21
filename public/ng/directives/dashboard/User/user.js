@@ -13,7 +13,7 @@ angular.module('matApp')
                     page: 1,
 
                 };
-                var apiUserListUrl = "http://localhost:3000/users/api/v1/admin/users"
+                var apiUserListUrl = "http://localhost:3000/api/v1/admin/users"
 
                 $scope.getUserList = function () {
                     $http.get(apiUserListUrl, { params: $scope.query })
@@ -32,7 +32,7 @@ angular.module('matApp')
 
                 $scope.getRole = function () {
                     $scope.roles = [];
-                    var apiRole = "http://localhost:3000/roles/api/v1/roles"
+                    var apiRole = "http://localhost:3000/api/v1/roles"
                     $scope.query = {
                         sortBy: 'roleCode',
                         limit: 10,

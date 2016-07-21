@@ -11,7 +11,7 @@ angular.module('matApp')
                     page: 1,
 
                 };
-                var apiUserPlanList = "http://localhost:3000/plans/api/v1/plans"
+                var apiUserPlanList = "http://localhost:3000/api/v1/userPlan"
 
                 $scope.getUserPlanList = function () {
                     $http.get(apiUserPlanList, { params: $scope.query })

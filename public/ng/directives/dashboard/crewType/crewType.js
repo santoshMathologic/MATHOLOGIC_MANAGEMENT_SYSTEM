@@ -13,7 +13,7 @@ angular.module('matApp').directive('crewType', ['$compile', function ($compiler)
                 page: 1,
            
             };
-            var apicrewType = "http://localhost:3000/crewTypes/api/v1/crewTypes"
+            var apicrewType = "http://localhost:3000/api/v1/crewTypes"
 
             $scope.getCrewType = function () {
                 $http.get(apicrewType, { params: $scope.query })

@@ -13,7 +13,7 @@ angular.module('matApp').directive('station', ['$compile', function ($compiler) 
                 page: 1,
            
             };
-            var apiStations = "http://localhost:3000/stations/api/v1/stations"
+            var apiStations = "http://localhost:3000/api/v1/stations"
 
             $scope.getStation = function () {
                 $http.get(apiStations, { params: $scope.query })

@@ -12,7 +12,7 @@ angular.module('matApp').directive('train', ['$compile', function ($compiler) {
                     page: 1,
 
                 };
-                var apiTrain = "http://localhost:3000/trains/api/v1/trains"
+                var apiTrain = "http://localhost:3000/api/v1/trains"
 
                 $scope.getTrainList = function () {
                     $http.get(apiTrain, { params: $scope.query })

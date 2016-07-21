@@ -46,11 +46,11 @@ router.get('/api/v1/trainstations', trainstation.getTrainStation);
 router.post('/api/v1/trainstations', trainstation.createTrainStation);
 
 //Routes for trainType
-router.get('/api/v1/trainTypes', traintype.getTrainType);
-router.post('/api/v1/trainTypes', traintype.createTrainType);
+router.get('/api/v1/trainTypes',traintype.getTrainType);
+router.post('/api/v1/trainTypes',traintype.createTrainType);
 
 //Routes for users
-router.get('/api/v1/user', users.getUser);
-router.post('/api/v1/user', users.createUser);
+router.get('/api/v1/admin/users', users.getUser);
+router.post('/api/v1/admin/users', users.createUser);
 
 module.exports = router;

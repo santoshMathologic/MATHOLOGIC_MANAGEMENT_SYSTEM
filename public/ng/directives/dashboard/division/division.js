@@ -13,7 +13,7 @@ angular.module('matApp').directive('division', ['$compile', function ($compiler)
                 page: 1,
            
             };
-            var apidivision = "http://localhost:3000/divisions/api/v1/divisions"
+            var apidivision = "http://localhost:3000/api/v1/divisions"
 
             $scope.getdivision = function () {
                 $http.get(apidivision, { params: $scope.query })

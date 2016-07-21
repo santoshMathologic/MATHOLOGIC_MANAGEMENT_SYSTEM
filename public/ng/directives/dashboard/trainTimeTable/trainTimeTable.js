@@ -19,7 +19,7 @@ angular.module('matApp').directive('trainTime', ['$compile', function ($compiler
                 startDay:$scope.startDay
 
             };
-            var apitimetable = "http://localhost:3000/trainstations/api/v1/trainstations"
+            var apitimetable = "http://localhost:3000/api/v1/trainstations"
 
             $scope.getTimeTable = function () {
                 $http.get(apitimetable, { params: $scope.query })

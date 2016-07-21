@@ -149,16 +149,31 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                         })
                     }
                 }
+            }).state('home.dashboard.trainTimeTable', {
+                url: '/trainTimeTable/:trainNo/:startDay',
+                controller: 'TrainTimeTableCtrl',
+                templateUrl: 'ng/directives/dashboard/trainTimeTable/trainTimeTable.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/trainTimeTable/trainTimeTable.js',
+                                'ng/controllers/trainTimeTable.js'
+                            ]
+                        })
+                    }
+                }
             }).state('home.Opportunity', {
                 url: '/Opportunity',
                 templateUrl: '/ng/directives/create.html',
-                controller:function($scope){
+                controller: function ($scope) {
 
 
-                    
+
                     console.log("In opportunity");
                 }
-               
+
             });
 
     }]);

@@ -120,7 +120,8 @@
                 <tbody>
                     <tr ng-repeat="train in trainsList">
                         <td>
-                            <a ui-sref="dashboard.trainTimeTable({trainNo:train.trainNo,startDay:Days[0]})" class="btn btn-success btn-md fa fa-info-circle"
+                            
+                            <a ui-sref="home.dashboard.trainTimeTable({trainNo:train.trainNo,startDay:Days[{{train.runningDays[0]}}]})" class="btn btn-success btn-md fa fa-info-circle"
                                 title="View"></a>
                         </td>
                         <td>{{$index+1}}</td>
@@ -146,6 +147,19 @@
                         </td>
                     </tr>
                 </tbody>
+                <tbody ng-show="true">
+                    <tr style="height:200px">
+                        <td colspan="11" class="text-center"><i class="fa fa-spinner fa-4x fa-pulse"> </i> Loading Trains...</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="9" class="text-center">
+                            <!--<div st-items-by-page="itemsPerPage" st-pagination="" st-template="scripts/directives/pagination/pagination.custom.html"></div> !-->
+                        </td>
+                    </tr>
+                </tfoot>
+
             </table>
         </div>
     </div>

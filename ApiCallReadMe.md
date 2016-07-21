@@ -8,4 +8,8 @@
 - Roles Routes-
 
 - trainStation-
-1. http://localhost:3000/trainStations/api/v1/trainStations?limit=10&page=1&sortBy=trainNo
+1. http://localhost:3000/trainStations/api/v1/trainStations?limit=10&page=1&sortBy=trainNo (GET)
+
+- role-
+1. http://localhost:3000/roles/api/v1/roles?limit=10&page=1&sortBy=roleCode (GET)
+

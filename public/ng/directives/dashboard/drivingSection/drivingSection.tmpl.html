@@ -32,7 +32,7 @@
                 </div>
                 <div class="panel-body">
                     <table class="table table-striped table-condensed" st-table="trainsList">
-                        <thead>
+                        <thead st-bind-model="{{refreshDrivingSection}}">
                             <tr>
                                 <th>Details</th>
                                 <th st-ratio="5">S.No.</th>
@@ -102,16 +102,16 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="train in trainsList"  ng-class="getSelectedTrainCss(train)">
-                               <!-- <td><a 
+                               <td><a 
                                        
                                         ng-click="getTrainTimeTable(train)" 
                                         class="btn btn-success btn-xs" title="select">
                                         <i class="fa fa-list" aria-hidden="true"></i>
                                     </a>
                                 </td>
-                                !-->
+                            
 
-                                <td cs-select="train"></td>
+                               <!-- <td cs-select="train"></td> !-->
                                 <td>{{$index+1}}</td>
                                 <td>{{train.trainNo}}</td>
                                 <td>{{train.trainName | limitTo : 20}}</td>
@@ -125,15 +125,15 @@
 
                             </tr>
                         </tbody>
-                       <!-- <tbody ng-show="true">
+                       <tbody ng-show="true">
                             <tr style="height:200px">
                                 <td colspan="11" class="text-center"><i class="fa fa-spinner fa-4x fa-pulse"> </i> Loading Trains...</td>
                             </tr>
                         </tbody>
-                        !-->
+                        
                         <tfoot>
                             <tr>
-                                <td colspan="5">
+                                <td colspan="10" class="text-center">
                                 <div st-items-by-page="itemsPerPage" st-pagination="" st-template="ng/directives/dashboard/pagination/pagination.custom.html"></div> 
                                 </td>
                             </tr>

@@ -9,6 +9,9 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
             $scope.trainNo = ($state.params.trainNo) ? $state.params.trainNo : 0;
             $scope.startDay = ($state.params.startDay) ? $state.params.startDay : '';
 
+            $scope.refreshDrivingSection = true;
+
+
             $scope.itemsPerPage = 200;
 
             $scope.selectedTrain = {
@@ -75,12 +78,14 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
 
                 }
 
-                console.log("" + $scope.selectedTrain.trainNo);
+            
 
             }
             $scope.getSelectedTrainCss = function (trainItem) {
                 if ($scope.selectedTrain.trainNo == trainItem.trainNo
                     && $scope.selectedTrain.startDay == Days[trainItem.runningDays[0]]) {
+           //  $scope.refreshDrivingSection = ($scope.refreshDrivingSection) ? false : true;
+                       //  $scope.getTrainList();
                     return $scope.selectedTrain.cssClass;
                 }
                 return "";

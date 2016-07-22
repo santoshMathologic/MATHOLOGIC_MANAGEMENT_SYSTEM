@@ -33,7 +33,8 @@ var app = angular
         'angucomplete-alt',
         'angular-confirm',
         'toaster',
-        'ngAutocomplete'
+        'ngAutocomplete',
+        'smart-table',
 
     ]);
 app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
@@ -110,6 +111,7 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                                     'ng/directives/dashboard/footer/footer.js',
                                     'ng/directives/dashboard/sidebar/sidebar.js',
                                     'ng/directives/dashboard/verticalMenu/verticalMenu.js',
+                                    'ng/directives/dashboard/pagination/pageSelect.directive.js',
 
                                 ]
                             })

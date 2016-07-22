@@ -87,31 +87,12 @@ var salary = {
 
 
     getSalary: function (req, res) {
-
-        /* var sBy = req.query.sortBy,
- 
-             options = {
-                 select: req.query.selectAll || "",
-                 sort: { sBy: -1 },
-                 populate: req.query.depopulateField  || "userId",
-                 lean: req.query.leanBy || true,
-                 limit: parseInt(req.query.limit) || 10,
-                 page: parseInt(req.query.page) || 1,
-             }
-         var query = {};
-         salaryModel.paginate({}, options).then(function (result) {
-             res.json(result);
- 
-         });
- 
-         */
-        var options = {
+     var options = {
             perPage: parseInt(req.query.limit) || 10,
             page: parseInt(req.query.page) || 1,
             sortBy: req.query.sortBy || 'name'
         };
-
-        var query = salaryModel.find({}).sort(options.sortBy);
+      var query = salaryModel.find().sort(options.sortBy).deepPopulate('userId');
         query.paginate(options, function (err, result) {
             res.json(result);
         });

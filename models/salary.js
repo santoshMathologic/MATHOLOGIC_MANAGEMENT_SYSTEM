@@ -13,6 +13,6 @@ var salarySchema = new mongoose.Schema({
     markDelete: { type: Boolean, default: false },
     userId: { type: Schema.Types.ObjectId, ref: 'user',index:true},
 })
-salarySchema.plugin(mongoosePaginate);
+//salarySchema.plugin(mongoosePaginate);
 salarySchema.plugin(deepPopulate);
 module.exports = mongoose.model('salary', salarySchema);

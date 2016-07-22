@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var train = require('../models/trainList.js');
+var trainModel = require('../models/trainList.js');
 require('mongoose-query-paginate');
 
 var train = {
@@ -11,7 +11,7 @@ var train = {
       sortBy: req.query.sortBy || 'trainNo'
     };
 
-    var query = train.find({}).sort(options.sortBy);
+    var query = trainModel.find({}).sort(options.sortBy);
     query.paginate(options, function (err, result) {
       res.json(result);
     });

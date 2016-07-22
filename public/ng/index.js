@@ -33,6 +33,7 @@ var app = angular
         'angucomplete-alt',
         'angular-confirm',
         'toaster',
+        'ngAutocomplete'
 
     ]);
 app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',

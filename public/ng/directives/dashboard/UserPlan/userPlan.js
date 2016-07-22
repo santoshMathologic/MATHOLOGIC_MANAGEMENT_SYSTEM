@@ -5,6 +5,7 @@ angular.module('matApp')
             templateUrl: 'ng/directives/dashboard/UserPlan/userPlan.tmpl.html',
             controller: function ($scope, $state, $window, $location, $http, $confirm) {
 
+                $scope.options = {};
                 $scope.query = {
                     sortBy: 'planName',
                     limit: 10,

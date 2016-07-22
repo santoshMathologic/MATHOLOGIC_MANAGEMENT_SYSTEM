@@ -36,8 +36,10 @@
                                     <th>SlNo</th>
                                     <th>PlanName</th>
                                     <th>Owner</th>
+                                    <th>coPlanner</th>
                                     <th>created On</th>
                                     <th>UnderReview</th>
+                                    <th>Reviewer</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -58,9 +60,11 @@
                                     <td>
                                         <div ng-class="(userplan.isUnderReview ? 'user_active' : 'user_deactive')"></div> {{(userplan.isUnderReview)?'yes':'No'}} </td>
 
+                                    <td>{{userplan.reviewer}}</td>
                                     <td>
 
-                                        <button class="light_green_btn_sm">
+
+                                        <button class="light_green_btn_sm" data-toggle="modal" data-target="#myModal">
                                          <i class="fa fa-share-alt" aria-hidden="true"></i>
                                     </button>
 
@@ -73,15 +77,10 @@
                                     </button>
 
 
-                                        <button class="light_red_btn_sm" ng-click="removeUserPlan()" ng-show="true"
-									confirm="Are you sure to delete Train: '{{trainItem[trains.fields.trainNo]}}-{{trainItem[trains.fields.startDay]}}' !!!"
-									confirm-settings="{size: 'md'}"
-									confirm-header-class="confirm-header-danger "
-									confirm-footer-class="confirm-footer-default"
-									confirm-ok-button-class="btn-danger"
-									confirm-cancel-button-class="btn-default"
-									confirm-title="Confirm Deletion!!" confirm-ok="Yes"
-									confirm-cancel="No" title="Remove">
+                                        <button class="light_red_btn_sm" ng-click="removeUserPlan()" ng-show="true" confirm="Are you sure to delete Train: '{{trainItem[trains.fields.trainNo]}}-{{trainItem[trains.fields.startDay]}}' !!!"
+                                            confirm-settings="{size: 'md'}" confirm-header-class="confirm-header-danger " confirm-footer-class="confirm-footer-default"
+                                            confirm-ok-button-class="btn-danger" confirm-cancel-button-class="btn-default" confirm-title="Confirm Deletion!!"
+                                            confirm-ok="Yes" confirm-cancel="No" title="Remove">
                                          <i class="fa fa-trash" aria-hidden="true"></i>
                                     </button>
 
@@ -117,6 +116,75 @@
 
             </div>
 
+
+            <!--- Modal added !-->
+
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Plan(Share /Send for Review)</h4>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <ul class="nav nav-tabs" style="cursor:pointer">
+                                <li class="active"><a data-target="#send_review" data-toggle="tab">SEND FOR REVIEW</a></li>
+                                <li><a data-target="#share_plan" data-toggle="tab">Share Plan</a></li>
+
+
+                            </ul>
+
+
+                            <div class="tab-content">
+                                <div id="send_review" class="tab-pane active">
+                                    <br>
+                                    <form>
+                                        <h1>Send For Review</h1>
+
+
+                                    </form>
+
+
+                                </div>
+
+
+
+                                <div id="share_plan" class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <form role="form" name="userForm" ng-class="submitClass" novalidate ng-submit="userForm.$valid && saveUser(userdetails)">
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of Tab !-->
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- -----!-->
 
 
 

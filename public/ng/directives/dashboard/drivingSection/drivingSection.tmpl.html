@@ -31,7 +31,7 @@
 
                 </div>
                 <div class="panel-body">
-                    <table class="table table-hover table-striped table-condensed table-responsive">
+                    <table class="table table-striped table-condensed">
                         <thead>
                             <tr>
                                 <th>Details</th>
@@ -101,9 +101,9 @@
 
                         </thead>
                         <tbody>
-                            <tr ng-repeat="train in trainsList">
+                            <tr ng-repeat="train in trainsList"  ng-class="getSelectedTrainCss(train)">
                                 <td><a 
-                                        ng-class="getSelectedTrainCss(train)"
+                                       
                                         ng-click="getTrainTimeTable(train)" 
                                         class="btn btn-success btn-xs" title="select">
                                         <i class="fa fa-list" aria-hidden="true"></i>

@@ -249,7 +249,7 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                     }
                 }
             }).state('home.dashboard.drivingSection', {
-                url: '/drivingSection',
+                url: '/drivingSection/:trainNo/:startDay',
                 controller: 'drivingSectionCtrl',
                 templateUrl: 'ng/directives/dashboard/drivingSection/drivingSection.directive.html',
                 resolve: {

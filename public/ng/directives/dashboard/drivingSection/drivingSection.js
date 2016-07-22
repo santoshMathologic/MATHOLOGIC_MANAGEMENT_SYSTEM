@@ -55,12 +55,24 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
 
 
             $scope.getTrainTimeTable = function (trainItem) {
+                if ($scope.selectedTrain.trainNo != trainItem.trainNo || $scope.selectedTrain.startDay != trainItem.runningDays[0]) {
+                    $scope.selectedTrain = {
+                        trainNo: trainItem.trainNo,
+                        startDay: Days[trainItem.runningDays[0]],
+                        cssClass: $scope.selectedCssClass
+                    };
 
-                $log
+                }
+
+                console.log("" + $scope.selectedTrain.trainNo);
 
             }
-            $scope.getSelectedTrainCss = function () {
-
+            $scope.getSelectedTrainCss = function (trainItem) {
+                if ($scope.selectedTrain.trainNo == trainItem.trainNo
+                    && $scope.selectedTrain.startDay == Days[trainItem.runningDays[0]]) {
+                    return $scope.selectedTrain.cssClass;
+                }
+                return "";
 
             }
 

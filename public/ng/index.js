@@ -248,6 +248,22 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                         })
                     }
                 }
+            }).state('home.dashboard.drivingSection', {
+                url: '/drivingSection',
+                controller: 'drivingSectionCtrl',
+                templateUrl: 'ng/directives/dashboard/drivingSection/drivingSection.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/drivingSection/drivingSection.js',
+                                'ng/controllers/drivingsection.js'
+
+                            ]
+                        })
+                    }
+                }
             })
 
             .state('home.Opportunity', {

@@ -40,6 +40,8 @@ router.post('/api/v1/crewTypes', crewType.createCrewType);
 
 //Routes for train
 router.get('/api/v1/trains', train.getTrain);
+//router.get('/api/v1/trains/searchTrain', train.getByTrainNo);
+router.get('/api/v1/trains/searchTrain/:trainNo', train.getByTrainNo);
 router.post('/api/v1/trains', train.createTrain);
 
 //Routes for trainstation

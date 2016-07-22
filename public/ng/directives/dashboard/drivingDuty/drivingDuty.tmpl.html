@@ -18,7 +18,7 @@
             <div class="custom-select-width300" custom-select="train as train.trainNo for train in searchTrain($searchTerm) | filter: { name: $searchTerm }"
                 ng-model="selectedTrain">
                 <div class="pull-left">
-                    <strong>{{ train.name }} - {{ train.startDay }}</strong>
+                    <strong>{{ train.trainNo }} - {{ train.trainName }}</strong>
                 </div>
                 <div class="clearfix"></div>
             </div>

@@ -2,32 +2,44 @@ angular.module('matApp').directive('drivingDuty', ['$compile', function ($compil
     return {
         restrict: 'E',
         templateUrl: 'ng/directives/dashboard/drivingDuty/drivingDuty.tmpl.html',
-        controller: function ($scope, $state,$q, $window, $location, $http, $resource) {
+        controller: function ($scope, $state, $window, $log, $q, $timeout, $location, $http, toaster) {
 
 
             $scope.trains = [];
 
-            
-            $scope.searchTrain = function (term) {
-            
+            $scope.searchTrain = function (term, timeout) {
                 if (!term) {
                     return $scope.trains;
                 }
+                var trainNo = parseInt(term);
                 var deferred = $q.defer();
-              /*  SpringDataRestApi.get('/api/trains/search/findByTrainNo?trainNo=' + term, ['fromStation', 'toStation']).then(
-                    function (response) {
-                        $scope.trains = response._embedded.trains;
-                        deferred.resolve($scope.trains);
-                    }
-                );
-                */
-                
+                $http.get("http://localhost:3000/api/v1/trains/searchTrain/" + trainNo).then(function (response) {
+
+                    $scope.trains = response.data.results;
+                    deferred.resolve($scope.trains);
+                }, function (errorResponse) {
+                    deferred.reject(errorResponse);
+
+                });
+
                 return deferred.promise;
+                /* $scope.query = {
+                     limit: 10,
+                     page: 1,
+                     sortBy: 'trainNo',
+                     term: term,
+                 }
+                 var deferred = $q.defer();
+                 $http.get("http://locolhost:3000/api/v1/trains/searchTrain", { params: $scope.query }).then(function (response) {
+                     $scope.trains = response.data.results;
+                     deferred.resolve($scope.trains);
+                 }, function (errorResponse) {
+                     deferred.reject(errorResponse);
+ 
+                 });
+                 */
+
             };
-
-
-
-
         }
 
     }

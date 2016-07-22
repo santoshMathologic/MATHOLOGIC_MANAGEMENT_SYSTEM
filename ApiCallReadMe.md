@@ -13,3 +13,8 @@
 - role-
 1. http://localhost:3000/roles/api/v1/roles?limit=10&page=1&sortBy=roleCode (GET)
 
+
+
+- train (train No search in train routes) --
+1. http://localhost:3000/api/v1/trains/searchTrain?limit=10&page=1&sortBy=employeeName&term=11014
+

@@ -3,7 +3,7 @@ angular.module('matApp')
         return {
             restrict: 'E',
             templateUrl: 'ng/directives/dashboard/UserPlan/userPlan.tmpl.html',
-            controller: function ($scope, $state, $window, $location, $http, $confirm) {
+            controller: function ($scope, $state,$timeout,$window, $location, $http, $confirm) {
 
                 $scope.options = {};
                 $scope.query = {
@@ -12,6 +12,7 @@ angular.module('matApp')
                     page: 1,
 
                 };
+                $scope.myvar =false;
                 var apiUserPlanList = "http://localhost:3000/api/v1/userPlan"
 
                 $scope.getUserPlanList = function () {
@@ -28,22 +29,37 @@ angular.module('matApp')
 
                 $scope.getUserPlanList();
 
-                $scope.removeUserPlan = function () {
+                $scope.removeUserPlan = function (plan) {
 
-                    $confirm(
-                        { // Confirm PopUp to Remove fields from
-                            // DB
-                            text: 'Are you sure you want to delete all item of this train?',
-                            headerClass: 'confirm-header-danger',
-                            okButtonClass: "btn-danger"
-                        }).then(function (successResponse) {
+                    $timeout(function () {
+                        var index = $scope.userPlanList.indexOf(plan);
+                        $scope.userPlanList.splice(index, 1);
+                        //$scope.myvar = true;
+                    }, 1000);
 
-                        }, function (errorResponse) {
-
-                        });
+ //$scope.myvar = false;
+                    /*  $confirm(
+                          { // Confirm PopUp to Remove fields from
+                              // DB
+                              text: 'Are you sure you want to delete all item of this train?',
+                              headerClass: 'confirm-header-danger',
+                              okButtonClass: "btn-danger"
+                          }).then(function (successResponse) {
+  
+  
+                          }, function (errorResponse) {
+  
+                          });
+                          */
                 }
 
+                $scope.getUsers = function (searchquery, timeout) {
+                    return $http.get("http://localhost:3000/api/v1/admin/users/searchByQuery/" + searchquery);
+                }
 
+                $scope.setPlan = function () {
+                    $state.go('home.dashboard.smalldashboard');
+                }
 
             }
 

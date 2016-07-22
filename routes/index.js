@@ -52,5 +52,6 @@ router.post('/api/v1/trainTypes',traintype.createTrainType);
 //Routes for users
 router.get('/api/v1/admin/users', users.getUser);
 router.post('/api/v1/admin/users', users.createUser);
+router.get('api/v1/admin/users/searchByQuery/:searchQuery', users.searchByUser)
 
 module.exports = router;

@@ -22,7 +22,22 @@ var user = {
   createUser:function(req,res){
 
 
+  },
+
+  searchByUser:function(req,res){
+
+    console.log("DASDAS");
+    if (req.params.searchQuery) {
+      User.find({ "userName": { '$regex': req.params.searchQuery, $options: 'i' } }).then(function (result) {
+        res.json(result);
+      });
+    }
+
+
+
   }
+
+
 }
 
 

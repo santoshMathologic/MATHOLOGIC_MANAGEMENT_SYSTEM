@@ -45,7 +45,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="userplan in userPlanList">
+                                <tr ng-repeat="userplan in userPlanList" ng-click="myvar=!myvar" ng-class="{animated:true, fadeOut:myvar, fadeIn: !myvar}">
 
                                     <td>
                                         <label><input type="checkbox" value=""></label>
@@ -63,6 +63,10 @@
                                     <td>{{userplan.reviewer}}</td>
                                     <td>
 
+                                        <button class="light_green_btn_sm" title="select" ng-click="setPlan();">
+                                         <i class="fa fa-adjust" aria-hidden="true"></i>
+                                         
+                                    </button>
 
                                         <button class="light_green_btn_sm" data-toggle="modal" data-target="#myModal">
                                          <i class="fa fa-share-alt" aria-hidden="true"></i>
@@ -77,7 +81,7 @@
                                     </button>
 
 
-                                        <button class="light_red_btn_sm" ng-click="removeUserPlan()" ng-show="true" confirm="Are you sure to delete Train: '{{trainItem[trains.fields.trainNo]}}-{{trainItem[trains.fields.startDay]}}' !!!"
+                                        <button class="light_red_btn_sm" ng-click="removeUserPlan(userplan)" ng-show="true" confirm="Are you sure to delete Train: '{{trainItem[trains.fields.trainNo]}}-{{trainItem[trains.fields.startDay]}}' !!!"
                                             confirm-settings="{size: 'md'}" confirm-header-class="confirm-header-danger " confirm-footer-class="confirm-footer-default"
                                             confirm-ok-button-class="btn-danger" confirm-cancel-button-class="btn-default" confirm-title="Confirm Deletion!!"
                                             confirm-ok="Yes" confirm-cancel="No" title="Remove">
@@ -160,6 +164,16 @@
                                     <br>
                                     <form>
                                         <h1>Send For Review</h1>
+
+                                        <div class="form-class">
+                                            <angucomplete-alt text-searching="Searching User" id="ddlHeadStation" placeholder="Search Stations" input-name="headstation"
+                                                pause="400" selected-object="headStationSelected" remote-url-data-field="" title-field="userName"
+                                                description-field="userName" remote-api-handler="getUsers" minlength="2" input-class="form-control"
+                                                image-field="" match-class="highlight">
+
+                                            </angucomplete-alt>
+                                        </div>
+
 
 
                                     </form>

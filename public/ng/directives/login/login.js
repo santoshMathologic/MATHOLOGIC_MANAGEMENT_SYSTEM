@@ -14,7 +14,7 @@ angular.module('matApp')
 
                 $scope.login = function () {
                     AuthFactory.doLogin($scope.userObj.username,$scope.userObj.password);
-                    $state.go('home.dashboard');
+                    $state.go('home.dashboard.userPlans');
 
                 }
 

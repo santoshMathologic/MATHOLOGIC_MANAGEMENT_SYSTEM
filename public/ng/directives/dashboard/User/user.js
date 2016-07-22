@@ -6,6 +6,7 @@ angular.module('matApp')
             controller: function ($scope, $state, $window,$log, $q, $timeout,$location, $http, toaster) {
 
                 $scope.userdetails = {};
+                $scope.images = "https://latimesherocomplex.files.wordpress.com/2030/04/hughjackman4.jpg";
 
                 $scope.query = {
                     sortBy: 'userName',

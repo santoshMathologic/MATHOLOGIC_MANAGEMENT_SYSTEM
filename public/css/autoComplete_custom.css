@@ -1,5 +1,12 @@
 .highlight {
 	color: #ff0000;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 1.5em;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
 }
 .angucomplete-description {
     font-size: 12px;

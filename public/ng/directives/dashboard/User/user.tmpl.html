@@ -147,7 +147,9 @@
                                 <label class="control-label">Subscribe to make CrewLinks for (Base Station)</label>
                                 <angucomplete-alt id="ddlHeadStation" placeholder="Search Stations" input-name="headstation" pause="400" selected-object="headStationSelected"
                                     remote-url-data-field="" title-field="code" description-field="name" remote-api-handler="getHeadStation"
-                                    minlength="2" input-class="form-control form-control-small" match-class="highlight"></angucomplete-alt>
+                                    minlength="2" input-class="form-control" image-field="images/assets/user1-128x128"  match-class="highlight">
+                                   
+                                </angucomplete-alt>
 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -192,7 +194,7 @@
 
 				            </button>
 
-                             <button type="submit" class="light_red_button" ng-click="submitClass='ng-submitted'">
+                            <button type="submit" class="light_red_button" ng-click="submitClass='ng-submitted'">
 					       <i class="fa fa-pencil-square" aria-hidden="true"></i> Update User
 
 				            </button>

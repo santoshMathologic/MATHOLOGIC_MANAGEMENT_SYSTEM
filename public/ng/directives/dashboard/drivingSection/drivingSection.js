@@ -2,10 +2,18 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
     return {
         restrict: 'E',
         templateUrl: 'ng/directives/dashboard/drivingSection/drivingSection.tmpl.html',
-        controller: function ($scope, $state, $window, $location, $http, $resource) {
+        controller: function ($scope, $state, $log, $q, $window, $location, $http, toaster, $confirm, $timeout, $resource) {
 
             $scope.trainsList = [];
             $scope.Days = Days;
+            $scope.trainNo = ($state.params.trainNo) ? $state.params.trainNo : 0;
+            $scope.startDay = ($state.params.startDay) ? $state.params.startDay : '';
+            $scope.selectedTrain = {
+                trainNo: $scope.trainNo,
+                startDay: $scope.startDay
+            };
+            $scope.selectedCssClass = 'selected-train-section';
+
             $scope.query = {
                 sortBy: 'trainNo',
                 limit: 10,
@@ -44,6 +52,17 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
                 $scope.getTrainList();
             }, true);
 
+
+
+            $scope.getTrainTimeTable = function (trainItem) {
+
+                $log
+
+            }
+            $scope.getSelectedTrainCss = function () {
+
+
+            }
 
 
         }

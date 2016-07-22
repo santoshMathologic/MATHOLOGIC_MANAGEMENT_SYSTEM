@@ -120,7 +120,7 @@
                 <tbody>
                     <tr ng-repeat="train in trainsList">
                         <td>
-                            
+
                             <a ui-sref="home.dashboard.trainTimeTable({trainNo:train.trainNo,startDay:Days[{{train.runningDays[0]}}]})" class="btn btn-success btn-md fa fa-info-circle"
                                 title="View"></a>
                         </td>
@@ -132,8 +132,11 @@
                         <td>{{train.trainType}}</td>
                         <td>{{train.fromStation}}</td>
                         <td>{{train.toStation}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>No</td>
+                        <td><input type="checkbox" ng-model="isUserSelected" ng-change="changeTrainFromUser(train);"
+                               
+                            />
+                        </td>
 
                         <td>
                             <button class="light_red_btn_sm">

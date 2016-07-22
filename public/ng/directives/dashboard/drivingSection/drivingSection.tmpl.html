@@ -14,52 +14,56 @@
     <div class="row">
         <div class="col-lg-12">
 
-        <div class="panel panel-default">
-        <div class="panel-heading">Train List
+            <div class="panel panel-default">
+                <div class="panel-heading">Train List
 
-            <div class="input-group pull-right">
-                <div class="form-group">
-                    <label class="col-lg-8 control-label">Item Per Page(1-100)</label>
-                    <div class="col-lg-4">
-                        <input name="limit" class="input-sm form-control pull-right ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min"
-                            min="1" max="100" value="5" step="1" type="number" ng-model-options="{ debounce: 1000 }" ng-model="query.limit">
+                    <div class="input-group pull-right">
+                        <div class="form-group">
+                            <label class="col-lg-8 control-label">Item Per Page(1-100)</label>
+                            <div class="col-lg-4">
+                                <input name="limit" class="input-sm form-control pull-right ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min"
+                                    min="1" max="100" value="5" step="1" type="number" ng-model-options="{ debounce: 1000 }"
+                                    ng-model="query.limit">
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
-            </div>
+                <div class="panel-body">
+                    <table class="table table-hover table-striped table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Details</th>
+                                <th>S.No.</th>
+                                <th>Train No</th>
+                                <th>Train Name</th>
+                                <th>Originating days</th>
+                                <th>Train Type </th>
+                                <th>Source</th>
+                                <th>Destination</th>
+                                <th>Has Driving Section</th>
 
 
-        </div>
-        <div class="panel-body">
-            <table class="table table-hover table-striped table-condensed table-responsive">
-                <thead>
-                    <tr>
-                        <th>Details</th>
-                        <th>S.No.</th>
-                        <th>Train No</th>
-                        <th>Train Name</th>
-                        <th>No of Days</th>
-                        <th>Originating days</th>
-                        <th>Train Type </th>
-                        <th>Source</th>
-                        <th>Destination</th>
-                        <th>Has Driving Section</th>
-                       
-                     
 
-                    </tr>
+                            </tr>
 
-                    <tr>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                        <th><input type="text" st-ratio="100" class="form-control input-sm" st-search="trainNo" placeholder="Train No"
-                                st-delay="1000" /></th>
-                        <th><input type="text" st-ratio="100" class="form-control input-sm" st-search="name" placeholder="Train Name"
-                                st-delay="1000" /></th>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                        <th>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th><input type="text" style="width:100px" class="form-control input-sm" st-search="trainNo"
+                                        placeholder="Train No" st-delay="1000" /></th>
+                                <th><input type="text" style="width:100px" class="form-control input-sm" st-search="name" placeholder="Train Name"
+                                        st-delay="1000" /></th>
+                                <th><select st-ratio="90" st-search="startDay" class="form-control input-sm">
+										<option value="" selected>All</option>
+										<option ng-repeat="day in Days" value="{{day}}">
+                           						 {{ day }}
+                        						</option>
+								</select></th>
+                                <th>
 
-                            <select st-search="trainType" st-input-event="change" st-delay=0 ng-model="dummy" class="form-control input-sm">
+                                    <select st-search="trainType" st-input-event="change" st-delay=0 ng-model="dummy" class="form-control input-sm">
                        					 <option value="">
                            					All
                        					 </option>
@@ -69,16 +73,16 @@
                                   </select>
 
 
-                        </th>
-                        <th><input type="text" st-ratio="100" class="form-control input-sm" st-search="fromStation" placeholder="From Station"
-                                st-delay="1000" />
-                            <input type="text" st-ratio="100" class="form-control input-sm" st-search="passingStation1" placeholder="Passing Station 1"
-                                st-delay="1000" /></th>
-                        <th><input type="text" st-ratio="100" class="form-control input-sm" st-search="toStation" placeholder="To Station"
-                                st-delay="1000" />
-                            <input type="text" st-ratio="100" class="form-control input-sm" st-search="passingStation2" placeholder="Passing Station 2"
-                                st-delay="1000" /></th>
-                        <th><select st-search="hasDrivingSection" class="form-control input-sm" st-ratio="100">
+                                </th>
+                                <th><input type="text" st-ratio="100" class="form-control input-sm" st-search="fromStation" placeholder="From Station"
+                                        st-delay="1000" />
+                                    <input type="text" st-ratio="100" class="form-control input-sm" st-search="passingStation1" placeholder="Passing Station 1"
+                                        st-delay="1000" /></th>
+                                <th><input type="text" st-ratio="100" class="form-control input-sm" st-search="toStation" placeholder="To Station"
+                                        st-delay="1000" />
+                                    <input type="text" st-ratio="100" class="form-control input-sm" st-search="passingStation2" placeholder="Passing Station 2"
+                                        st-delay="1000" /></th>
+                                <th><select st-search="hasDrivingSection" class="form-control input-sm" st-ratio="100">
                        					 <option value="">
                            					All
                        					 </option>
@@ -89,50 +93,51 @@
                            					With Driving Section
                        					 </option>
                                   </select></th>
-                        
-                        <th>&nbsp;</th>
 
-                    </tr>
+                                <th>&nbsp;</th>
+
+                            </tr>
 
 
-                </thead>
-                <tbody>
-                    <tr ng-repeat="train in trainsList">
-                        <td>
-                            
-                            <button  class="btn btn-success btn-xs" title="select">
-                            <i class="fa fa-list" aria-hidden="true"></i>
-                            </button>
-                        </td>
-                        <td>{{$index+1}}</td>
-                        <td>{{train.trainNo}}</td>
-                        <td>{{train.trainName | limitTo : 20}}</td>
-                        <td>{{train.runningDays.length}}</td>
-                        <td><span ng-repeat="day in train.runningDays">{{Days[day] | limitTo : 2}} </span></td>
-                        <td>{{train.trainType}}</td>
-                        <td>{{train.fromStation}}</td>
-                        <td>{{train.toStation}}</td>
-                        <td></td>
-                   
-                        
-                    </tr>
-                </tbody>
-                <tbody ng-show="true">
-                    <tr style="height:200px">
-                        <td colspan="11" class="text-center"><i class="fa fa-spinner fa-4x fa-pulse"> </i> Loading Trains...</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="9" class="text-center">
-                            <!--<div st-items-by-page="itemsPerPage" st-pagination="" st-template="scripts/directives/pagination/pagination.custom.html"></div> !-->
-                        </td>
-                    </tr>
-                </tfoot>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="train in trainsList">
+                                <td><a 
+                                        ng-class="getSelectedTrainCss(train)"
+                                        ng-click="getTrainTimeTable(train)" 
+                                        class="btn btn-success btn-xs" title="select">
+                                        <i class="fa fa-list" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                                <td>{{$index+1}}</td>
+                                <td>{{train.trainNo}}</td>
+                                <td>{{train.trainName | limitTo : 20}}</td>
 
-            </table>
-        </div>
-    </div>
+                                <td>{{Days[train.runningDays[0]]|limitTo:3}}</td>
+                                <td>{{train.trainType}}</td>
+                                <td>{{train.fromStation}}</td>
+                                <td>{{train.toStation}}</td>
+                                <td></td>
+
+
+                            </tr>
+                        </tbody>
+                        <tbody ng-show="true">
+                            <tr style="height:200px">
+                                <td colspan="11" class="text-center"><i class="fa fa-spinner fa-4x fa-pulse"> </i> Loading Trains...</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="9" class="text-center">
+                                    <!--<div st-items-by-page="itemsPerPage" st-pagination="" st-template="scripts/directives/pagination/pagination.custom.html"></div> !-->
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+            </div>
 
 
 

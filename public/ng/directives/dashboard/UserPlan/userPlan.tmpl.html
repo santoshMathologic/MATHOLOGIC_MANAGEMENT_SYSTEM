@@ -32,6 +32,7 @@
                         <table class="table table-hover table-condensed table-responsive">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>SlNo</th>
                                     <th>PlanName</th>
                                     <th>Owner</th>
@@ -43,6 +44,10 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="userplan in userPlanList">
+
+                                    <td>
+                                        <label><input type="checkbox" value=""></label>
+                                    </td>
                                     <td>{{$index+1}}</td>
                                     <td>{{userplan.planName}}</td>
                                     <td>{{userplan.owner}}</td>
@@ -68,7 +73,15 @@
                                     </button>
 
 
-                                        <button class="light_red_btn_sm">
+                                        <button class="light_red_btn_sm" ng-click="removeUserPlan()" ng-show="true"
+									confirm="Are you sure to delete Train: '{{trainItem[trains.fields.trainNo]}}-{{trainItem[trains.fields.startDay]}}' !!!"
+									confirm-settings="{size: 'md'}"
+									confirm-header-class="confirm-header-danger "
+									confirm-footer-class="confirm-footer-default"
+									confirm-ok-button-class="btn-danger"
+									confirm-cancel-button-class="btn-default"
+									confirm-title="Confirm Deletion!!" confirm-ok="Yes"
+									confirm-cancel="No" title="Remove">
                                          <i class="fa fa-trash" aria-hidden="true"></i>
                                     </button>
 

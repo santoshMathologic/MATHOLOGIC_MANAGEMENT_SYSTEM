@@ -1,0 +1,11 @@
+.confirm-header-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.confirm-footer-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}

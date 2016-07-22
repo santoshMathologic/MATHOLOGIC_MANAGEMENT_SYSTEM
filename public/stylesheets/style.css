@@ -58,3 +58,8 @@ body{
     bottom:0%;
     border-left:4px solid red;
 }
+
+.custom-select-width300{
+  width: 300px;
+
+}

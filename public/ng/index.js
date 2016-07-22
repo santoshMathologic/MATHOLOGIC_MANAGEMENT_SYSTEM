@@ -35,6 +35,7 @@ var app = angular
         'toaster',
         'ngAutocomplete',
         'smart-table',
+        'AxelSoft'
 
     ]);
 app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
@@ -261,6 +262,22 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                             files: [
                                 'ng/directives/dashboard/drivingSection/drivingSection.js',
                                 'ng/controllers/drivingsection.js'
+
+                            ]
+                        })
+                    }
+                }
+            }).state('home.dashboard.drivingDuty', {
+                url: '/drivingDuty/:trainNo/:startDay',
+                controller: 'drivingDutyCtrl',
+                templateUrl: 'ng/directives/dashboard/drivingDuty/drivingDuty.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/drivingDuty/drivingDuty.js',
+                                'ng/controllers/drivingDuty.js'
 
                             ]
                         })

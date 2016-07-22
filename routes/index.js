@@ -9,6 +9,7 @@ var division = require('./division.js');
 var traintype = require('./trainType.js');
 var crewType = require('./crewType.js');
 var role = require('./role.js');
+var salary = require("./salary.js");
 
 
 

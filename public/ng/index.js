@@ -267,6 +267,23 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                     }
                 }
             })
+            .state('home.dashboard.salary', {
+                url: '/salary',
+                controller: 'salaryCtrl',
+                templateUrl: 'ng/directives/dashboard/salary/salary.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/salary/salary.js',
+                                'ng/controllers/salary.js'
+
+                            ]
+                        })
+                    }
+                }
+            })
 
             .state('home.Opportunity', {
                 url: '/Opportunity',

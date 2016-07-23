@@ -269,7 +269,27 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                         })
                     }
                 }
-            }).state('home.dashboard.drivingDuty', {
+            }).state('home.dashboard.drivingSectionforallday', {
+                url: '/drivingSectionforallday',
+                controller: 'divisionAllCtrl',
+                templateUrl: 'ng/directives/dashboard/drivingSection/drivingSection_For_All_Day/drivingSectionAll.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/drivingSection/drivingSectionAll.js',
+                                'ng/controllers/drivingsectionAll.js'
+
+                            ]
+                        })
+                    }
+                }
+            })
+            
+            
+            
+            .state('home.dashboard.drivingDuty', {
                 url: '/drivingDuty/:trainNo/:startDay',
                 controller: 'drivingDutyCtrl',
                 templateUrl: 'ng/directives/dashboard/drivingDuty/drivingDuty.directive.html',

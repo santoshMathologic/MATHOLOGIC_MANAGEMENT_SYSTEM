@@ -18,3 +18,8 @@
 - train (train No search in train routes) --
 1. http://localhost:3000/api/v1/trains/searchTrain?limit=10&page=1&sortBy=employeeName&term=11014
 
+1. http://localhost:3000/api/v1/trainstations/search_trainNo_and_startDay?limit=50&page=1&sortBy=stopNumber&startDay=MONDAY&trainNo=11014
+
+1. http://localhost:3000/api/v1/trains/searchWhereTrain/1101
+
+

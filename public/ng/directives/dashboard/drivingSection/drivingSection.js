@@ -6,6 +6,8 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
 
             $scope.trainsList = [];
             $scope.trainstation = [];
+            $scope.selectedTrainStations = {};
+
             $scope.Days = Days;
             $scope.trainNo = ($state.params.trainNo) ? $state.params.trainNo : 0;
             $scope.startDay = ($state.params.startDay) ? $state.params.startDay : '';
@@ -122,6 +124,38 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
 
             }
 
+            $scope.addTrainStationSelectedList = function (stopNumber,stationdata) {
+                $scope.selectedTrainStations[stopNumber] = {
+                    data: stationdata,
+                    cssClass: $scope.selectedCssClass
+                };
+            };
+            $scope.removeTrainStationSelectedList = function (stopNumber) {
+                delete $scope.selectedTrainStations[stopNumber];
+            };
+
+            $scope.rowClicked = function (stopNumber,data) {
+
+                if (stopNumber == 1
+                    || stopNumber == $scope.trainstation.length) {
+                    toaster
+                        .pop({
+                            type: 'error',
+                            title: 'Error',
+                            body: 'You cannot unselect first and last stations.'
+                        });
+                    return;
+                } else {
+
+                    if ($scope.selectedTrainStations[stopNumber] && $scope.selectedTrainStations[stopNumber].cssClass) {
+                        $scope.removeTrainStationSelectedList(stopNumber);
+                    } else {
+                        $scope.addTrainStationSelectedList(stopNumber,data);
+                    }
+                }
+
+
+            }
 
         }
 

@@ -9,6 +9,20 @@
         <li class="active">UserPlan</li>
     </ul>
     <h1>Current User Plan : Not Selected</h1>
+    <div class="col-lg-6">
+        <div class="form-class">
+            <angucomplete-alt text-searching="Searching User........." id="ddlHeadStation" placeholder="Search users................"
+                input-name="headstation" pause="400" selected-object="userSelected" remote-url-data-field="" title-field="firstName"
+                description-field="lastName" remote-api-handler="getUsers" minlength="2" input-class="form-control custom_autoComplete"
+                match-class="highlight" field-required="true" auto-match="true">
+
+            </angucomplete-alt>
+        </div>
+    </div>
+
+    <div ng-repeat="s in selectedUser">{{s.name}} </div>
+
+
     <div class="row">
         <div class="col-lg-12">
             <div class="col-lg-8">
@@ -113,7 +127,7 @@
                             <button type="button" class="light_red_button">
                                 <i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>Save</button>
 
-                           <!-- <div class="form-group">
+                            <!-- <div class="form-group">
                                 <div class="form-group move-down">
                                     <label for="Autocomplete2">Autocomplete Model</label>
                                     <input type="text" id="Autocomplete2" ng-model="autocomplete" class="form-control" ng-autocomplete options="options" details="details"
@@ -166,14 +180,7 @@
                                     <form>
                                         <h1>Send For Review</h1>
 
-                                        <div class="form-class">
-                                            <angucomplete-alt text-searching="Searching User" id="ddlHeadStation" placeholder="Search Stations" input-name="headstation"
-                                                pause="400" selected-object="headStationSelected" remote-url-data-field="" title-field="userName"
-                                                description-field="userName" remote-api-handler="getUsers" minlength="2" input-class="form-control"
-                                                image-field="" match-class="highlight">
 
-                                            </angucomplete-alt>
-                                        </div>
 
 
 

@@ -3,7 +3,7 @@ angular.module('matApp')
         return {
             restrict: 'E',
             templateUrl: 'ng/directives/dashboard/UserPlan/userPlan.tmpl.html',
-            controller: function ($scope, $state,$timeout,$window, $location, $http, $confirm) {
+            controller: function ($scope, $state, $timeout, $window, $location, $http, $confirm) {
 
                 $scope.options = {};
                 $scope.query = {
@@ -12,7 +12,7 @@ angular.module('matApp')
                     page: 1,
 
                 };
-                $scope.myvar =false;
+                $scope.myvar = false;
                 var apiUserPlanList = "http://localhost:3000/api/v1/userPlan"
 
                 $scope.getUserPlanList = function () {
@@ -37,7 +37,7 @@ angular.module('matApp')
                         //$scope.myvar = true;
                     }, 1000);
 
- //$scope.myvar = false;
+                    //$scope.myvar = false;
                     /*  $confirm(
                           { // Confirm PopUp to Remove fields from
                               // DB
@@ -54,7 +54,18 @@ angular.module('matApp')
                 }
 
                 $scope.getUsers = function (searchquery, timeout) {
-                    return $http.get("http://localhost:3000/api/v1/admin/users/searchByQuery/" + searchquery);
+                    return $http.get("http://localhost:3000/api/v1/admin/users/searchUser/" + searchquery);
+
+                }
+                $scope.userSelected = function (selectedUser) {
+                    $scope.selectedUser = []
+                    $scope.user = {};
+                    if (selectedUser.firstName) {
+                        console.log(selectedUser.title);
+                         $scope.user.name = selectedUser.title;
+                         $scope.selectedUser.push($scope.user.name);
+
+                    }
                 }
 
                 $scope.setPlan = function () {

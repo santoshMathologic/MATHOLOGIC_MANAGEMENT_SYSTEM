@@ -42,6 +42,7 @@ router.post('/api/v1/crewTypes', crewType.createCrewType);
 router.get('/api/v1/trains', train.getTrain);
 //router.get('/api/v1/trains/searchTrain', train.getByTrainNo);
 router.get('/api/v1/trains/searchTrain/:trainNo', train.getByTrainNo);
+router.get('/api/v1/trains/searchWhereTrain/:trainNo', train.getWhereTrainNo);
 router.post('/api/v1/trains', train.createTrain);
 
 //Routes for trainstation
@@ -55,7 +56,7 @@ router.post('/api/v1/trainTypes', traintype.createTrainType);
 //Routes for users
 router.get('/api/v1/admin/users', users.getUser);
 router.post('/api/v1/admin/users', users.createUser);
-router.get('api/v1/admin/users/searchByQuery/:searchQuery', users.searchByUser)
+router.get('/api/v1/admin/users/searchUser/:term', users.searchUerbyQuery);
 
 
 

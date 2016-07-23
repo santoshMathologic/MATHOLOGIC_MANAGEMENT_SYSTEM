@@ -9,6 +9,7 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
             $scope.selectedTrainStations = {};
 
             $scope.Days = Days;
+            $scope.trainTypes = trainTypes;
             $scope.trainNo = ($state.params.trainNo) ? $state.params.trainNo : 0;
             $scope.startDay = ($state.params.startDay) ? $state.params.startDay : '';
 

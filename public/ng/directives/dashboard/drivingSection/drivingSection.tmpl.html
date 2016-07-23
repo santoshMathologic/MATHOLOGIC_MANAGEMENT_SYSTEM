@@ -63,12 +63,12 @@
 								</select></th>
                                 <th>
 
-                                    <select st-search="trainType" st-input-event="change" st-delay=0 ng-model="dummy" class="form-control input-sm">
+                                    <select st-search="trainType" st-input-event="change" st-delay=0 ng-model="trainType" class="form-control input-sm">
                        					 <option value="">
                            					All
                        					 </option>
-                        						<option ng-repeat="item in trainTypes" value="{{ item.name }}">
-                           						 {{ item.name }}
+                        						<option ng-repeat="item in trainTypes" value="{{item}}">
+                           						 {{ item }}
                         						</option>
                                   </select>
 
@@ -132,7 +132,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="10" class="text-center">
-                                    <div st-items-by-page="itemsPerPage" st-pagination="" st-template="ng/directives/dashboard/pagination/pagination.custom.html"></div>
+                                    <div st-items-by-page="itemsPerPage" st-template="ng/directives/dashboard/pagination/pagination.custom.html"></div>
                                 </td>
                             </tr>
                         </tfoot>
@@ -208,9 +208,12 @@
                     </table>
                 </div>
             </div>
-
-
         </div>
+
+        <div class="col-lg-12">
+<button type="button" class="btn btn-primary btn-md">Save Driving Section</button>
+        </div>
+
 
     </div>
 

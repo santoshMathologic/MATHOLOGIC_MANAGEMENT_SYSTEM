@@ -6,6 +6,7 @@ angular.module('matApp')
             controller: function ($scope, $state, $window, $log, $q, $timeout, $location, $http, toaster) {
 
                 $scope.userdetails = {};
+                $scope.blankuserdetails = {};
                 $scope.images = "https://latimesherocomplex.files.wordpress.com/2030/04/hughjackman4.jpg";
 
                 $scope.query = {
@@ -100,7 +101,7 @@ angular.module('matApp')
                                         title: 'User saved Succcessfully',
                                         body: 'User saved Succcessfully.'
                                     });
-
+                             
                             }
 
                         });
@@ -109,7 +110,10 @@ angular.module('matApp')
 
                 }
 
-
+              $scope.reset = function(){
+                  $scope.userdetails = angular.copy($scope.blankuserdetails);
+                  $scope.submitClass="hide-errors";
+              }
 
                 $scope.test = function () {
                     var nonDBFieldsArray = ['limit', 'page', 'order', 'sectionType'];

@@ -14,7 +14,6 @@ var trainStationSchema = new mongoose.Schema({
     dayOfJourney: { type: Number },
     distance: { type: Number },
     locoType: String,
-    isLocoChange: { type: Boolean, default: false },
     markDelete: { type: Boolean, default: false },
     createdTime: { type: Date, default: Date.now }
 })

@@ -48,6 +48,8 @@ router.post('/api/v1/trains', train.createTrain);
 //Routes for trainstation
 router.get('/api/v1/trainstations', trainstation.getTrainStation);
 router.post('/api/v1/trainstations', trainstation.createTrainStation);
+router.get('/api/v1/trainstations/search_trainNo_and_startDay', trainstation.get_by_trainNo_and_startDay);
+
 
 //Routes for trainType
 router.get('/api/v1/trainTypes', traintype.getTrainType);

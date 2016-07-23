@@ -5,6 +5,7 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
         controller: function ($scope, $filter, $state, $log, $q, $window, $location, $http, toaster, $confirm, $timeout, $resource) {
 
             $scope.trainsList = [];
+            $scope.trainstation = [];
             $scope.Days = Days;
             $scope.trainNo = ($state.params.trainNo) ? $state.params.trainNo : 0;
             $scope.startDay = ($state.params.startDay) ? $state.params.startDay : '';
@@ -67,6 +68,35 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
             }, true);
 
 
+            $scope.updateTrainStationsUrl = function () {
+                if ($scope.selectedTrain.trainNo == 0
+                    || $scope.selectedTrain.startDay == '') {
+                    return '';
+                }
+                return "http://localhost:3000/api/v1/trainstations/search_trainNo_and_startDay";
+            }
+
+            $scope.getstation = function () {
+                $scope.query1 = {
+                    sortBy: 'stopNumber',
+                    limit: 50,
+                    page: 1,
+                    trainNo: $scope.selectedTrain.trainNo,
+                    startDay: $scope.selectedTrain.startDay
+
+                }
+                $http.get($scope.updateTrainStationsUrl(), { params: $scope.query1 }).then(function (response) {
+                    $scope.trainstation = response.data.results;
+                    $scope.currentPage = response.data.current;
+                    $scope.perPage = response.data.options.perPage;
+                    $scope.totalPages = response.data.last;
+                    $scope.totalRecords = response.data.count;
+
+                }, function (error) {
+
+                });
+
+            }
 
             $scope.getTrainTimeTable = function (trainItem) {
                 if ($scope.selectedTrain.trainNo != trainItem.trainNo || $scope.selectedTrain.startDay != trainItem.runningDays[0]) {
@@ -75,17 +105,17 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
                         startDay: Days[trainItem.runningDays[0]],
                         cssClass: $scope.selectedCssClass
                     };
-
+                    $scope.getstation();
                 }
 
-            
+
 
             }
             $scope.getSelectedTrainCss = function (trainItem) {
                 if ($scope.selectedTrain.trainNo == trainItem.trainNo
                     && $scope.selectedTrain.startDay == Days[trainItem.runningDays[0]]) {
-           //  $scope.refreshDrivingSection = ($scope.refreshDrivingSection) ? false : true;
-                       //  $scope.getTrainList();
+                    //  $scope.refreshDrivingSection = ($scope.refreshDrivingSection) ? false : true;
+                    //  $scope.getTrainList();
                     return $scope.selectedTrain.cssClass;
                 }
                 return "";

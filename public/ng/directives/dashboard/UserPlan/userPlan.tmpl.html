@@ -9,6 +9,11 @@
         <li class="active">UserPlan</li>
     </ul>
     <h1>Current User Plan : Not Selected</h1>
+
+    <ul ng-repeat="s in selectedUser">
+        <li>{{s.name}}</li>
+    </ul>
+
     <div class="col-lg-6">
         <div class="form-class">
             <angucomplete-alt text-searching="Searching User........." id="ddlHeadStation" placeholder="Search users................"
@@ -20,7 +25,7 @@
         </div>
     </div>
 
-    <div ng-repeat="s in selectedUser">{{s.name}} </div>
+
 
 
     <div class="row">

@@ -6,6 +6,7 @@ angular.module('matApp')
             controller: function ($scope, $state, $timeout, $window, $location, $http, $confirm) {
 
                 $scope.options = {};
+                $scope.selectedUser = [];
                 $scope.query = {
                     sortBy: 'planName',
                     limit: 10,
@@ -57,14 +58,11 @@ angular.module('matApp')
                     return $http.get("http://localhost:3000/api/v1/admin/users/searchUser/" + searchquery);
 
                 }
-                $scope.userSelected = function (selectedUser) {
-                    $scope.selectedUser = []
-                    $scope.user = {};
-                    if (selectedUser.firstName) {
-                        console.log(selectedUser.title);
-                         $scope.user.name = selectedUser.title;
-                         $scope.selectedUser.push($scope.user.name);
-
+                
+                $scope.userSelected = function (selectedObjUser) {
+                    if (selectedObjUser) {
+                        $scope.selectedUser.push({name:selectedObjUser.title});
+                        console.log("" + $scope.selectedUser);
                     }
                 }
 

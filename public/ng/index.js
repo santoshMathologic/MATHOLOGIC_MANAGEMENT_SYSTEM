@@ -113,6 +113,8 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                                     'ng/directives/dashboard/sidebar/sidebar.js',
                                     'ng/directives/dashboard/verticalMenu/verticalMenu.js',
                                     'ng/directives/dashboard/pagination/pageSelect.directive.js',
+                                    'ng/util/timeFilter.js',
+
 
                                 ]
                             })

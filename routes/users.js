@@ -22,7 +22,43 @@ var user = {
 
   createUser: function (req, res) {
 
+    var userObject = new User({
+      userName: req.body.username,
+      password: req.body.password,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      roleCode: req.body.role.roleCode,
+      email: req.body.email,
+      address: req.body.address,
+      userActive: req.body.isActive,
+      mobileNo: req.body.mobileNo,
+      city: "Bengauru",
+      subscribeStations:["SBC","MAS","CSTM","KGP","BLGR"]
+    })
 
+    userObject.save(function (err) {
+      if (err) return err;
+      res.status(201);
+      return res.json({
+        "status": "200",
+        "success": true,
+        "message": "User saved Successfully",
+      });
+    });
+
+
+  },
+  deleteUser: function (req, res) {
+    var id = req.params.id;
+    mitaccountModel.findByIdAndUpdate(id, { 'markDelete': true }, function (result) {
+      res.status(201);
+      res.json({
+        "status": 200,
+        "message": "delete Successfully"
+      })
+    }, function (error) {
+      console.log("error" + error);
+    })
   },
 
   searchUerbyQuery: function (req, res) {

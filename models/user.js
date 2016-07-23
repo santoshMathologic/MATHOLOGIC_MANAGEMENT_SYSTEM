@@ -9,6 +9,7 @@ var userSchema = new mongoose.Schema({
     city: String,
     address:String,
     mobileNo:Number,
+    subscribeStations:[String],
     userActive:{type:Boolean,default:false},
     roleCode: {type:String, ref:'role', default:'Planner'},
     markDelete:{type:Boolean,default:false},

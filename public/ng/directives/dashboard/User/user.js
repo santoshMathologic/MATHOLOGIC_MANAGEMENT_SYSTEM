@@ -3,7 +3,7 @@ angular.module('matApp')
         return {
             restrict: 'E',
             templateUrl: 'ng/directives/dashboard/User/user.tmpl.html',
-            controller: function ($scope, $state, $window,$log, $q, $timeout,$location, $http, toaster) {
+            controller: function ($scope, $state, $window, $log, $q, $timeout, $location, $http, toaster) {
 
                 $scope.userdetails = {};
                 $scope.images = "https://latimesherocomplex.files.wordpress.com/2030/04/hughjackman4.jpg";
@@ -80,14 +80,35 @@ angular.module('matApp')
 
                 $scope.saveUser = function (userobj) {
 
-                    console.log("" + userobj.username);
-                    toaster
-                        .pop({
-                            type: 'success',
-                            title: 'User Save Successfully!!!!!',
-                            body: 'User Save Successfully!!!!! !!!'
-                        });
+                    if (userobj.username != null && userobj.username != ''
+                        || userobj.password != null && userobj.password != ''
+                        || userobj.firstName != null && userobj.firstName != ''
+                        || userobj.lastName != null && userobj.lastName != ''
+                        || userobj.email != null && userobj.email != ''
+                        || userobj.role != null && userobj.role != ''
+                        || userobj.address != null && userobj.address != ''
+                        || userobj.isActive != null && userobj.isActive != ''
+                        || userobj.mobileNo != null && userobj.mobileNo != ''
+                    ) {
 
+                        var apiUser = "http://localhost:3000/api/v1/admin/users";
+                        $http.post(apiUser, userobj).then(function (successResponse) {
+                            if (successResponse.status == 200) {
+                                toaster
+                                    .pop({
+                                        type: 'success',
+                                        title: 'User saved Succcessfully',
+                                        body: 'User saved Succcessfully.'
+                                    });
+
+                            }
+
+                        }, function (errorResponse) {
+
+
+                        })
+
+                    }
 
                 }
 

@@ -94,14 +94,14 @@ angular.module('matApp')
 
                         var apiUser = "http://localhost:3000/api/v1/admin/users";
                         $http.post(apiUser, userobj).then(function (successResponse) {
-                            if (successResponse.data.status==200) {
+                            if (successResponse.data.status == 200) {
                                 toaster
                                     .pop({
                                         type: 'success',
                                         title: 'User saved Succcessfully',
                                         body: 'User saved Succcessfully.'
                                     });
-                             
+
                             }
 
                         });
@@ -110,10 +110,14 @@ angular.module('matApp')
 
                 }
 
-              $scope.reset = function(){
-                  $scope.userdetails = angular.copy($scope.blankuserdetails);
-                  $scope.submitClass="hide-errors";
-              }
+                $scope.reset = function () {
+                    $scope.userdetails = angular.copy($scope.blankuserdetails);
+                    $scope.submitClass = "hide-errors";
+                }
+                $scope.$watch('userdetails', function (c) {
+                    $location.hash('userFormDiv');
+                    $anchorScroll();
+                });
 
                 $scope.test = function () {
                     var nonDBFieldsArray = ['limit', 'page', 'order', 'sectionType'];

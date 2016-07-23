@@ -93,7 +93,7 @@ angular.module('matApp')
 
                         var apiUser = "http://localhost:3000/api/v1/admin/users";
                         $http.post(apiUser, userobj).then(function (successResponse) {
-                            if (successResponse.status == 200) {
+                            if (successResponse.data.status==200) {
                                 toaster
                                     .pop({
                                         type: 'success',
@@ -103,10 +103,7 @@ angular.module('matApp')
 
                             }
 
-                        }, function (errorResponse) {
-
-
-                        })
+                        });
 
                     }
 

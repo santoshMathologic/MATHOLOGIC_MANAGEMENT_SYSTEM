@@ -40,7 +40,7 @@ var user = {
       if (err) return err;
       res.status(201);
       return res.json({
-        "status": "200",
+        "status": 200,
         "success": true,
         "message": "User saved Successfully",
       });
@@ -50,7 +50,7 @@ var user = {
   },
   deleteUser: function (req, res) {
     var id = req.params.id;
-    mitaccountModel.findByIdAndUpdate(id, { 'markDelete': true }, function (result) {
+    User.findByIdAndUpdate(id, { 'markDelete': true }, function (result) {
       res.status(201);
       res.json({
         "status": 200,

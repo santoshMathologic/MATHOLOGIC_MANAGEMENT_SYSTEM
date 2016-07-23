@@ -94,6 +94,16 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
                     $scope.totalPages = response.data.last;
                     $scope.totalRecords = response.data.count;
 
+                    for (var i = 0; i < $scope.trainstation.length; i++) {
+                        if ($scope.trainstation[i].arrivalTime == '0:00') {
+                            $scope.addTrainStationSelectedList(i+1, null);
+                        }
+                        if ($scope.trainstation[i].departureTime == '0:00') {
+                            $scope.addTrainStationSelectedList($scope.trainstation.length, null);
+                        }
+
+                    }
+
                 }, function (error) {
 
                 });
@@ -124,7 +134,7 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
 
             }
 
-            $scope.addTrainStationSelectedList = function (stopNumber,stationdata) {
+            $scope.addTrainStationSelectedList = function (stopNumber, stationdata) {
                 $scope.selectedTrainStations[stopNumber] = {
                     data: stationdata,
                     cssClass: $scope.selectedCssClass
@@ -134,7 +144,7 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
                 delete $scope.selectedTrainStations[stopNumber];
             };
 
-            $scope.rowClicked = function (stopNumber,data) {
+            $scope.rowClicked = function (stopNumber, data) {
 
                 if (stopNumber == 1
                     || stopNumber == $scope.trainstation.length) {
@@ -150,7 +160,7 @@ angular.module('matApp').directive('drivingSection', ['$compile', function ($com
                     if ($scope.selectedTrainStations[stopNumber] && $scope.selectedTrainStations[stopNumber].cssClass) {
                         $scope.removeTrainStationSelectedList(stopNumber);
                     } else {
-                        $scope.addTrainStationSelectedList(stopNumber,data);
+                        $scope.addTrainStationSelectedList(stopNumber, data);
                     }
                 }
 

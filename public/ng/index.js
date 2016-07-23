@@ -278,7 +278,7 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                         return $ocLazyLoad.load({
                             name: 'matApp',
                             files: [
-                                'ng/directives/dashboard/drivingSection/drivingSectionAll.js',
+                                'ng/directives/dashboard/drivingSection/drivingSection_For_All_Day/drivingSectionAll.js',
                                 'ng/controllers/drivingsectionAll.js'
 
                             ]

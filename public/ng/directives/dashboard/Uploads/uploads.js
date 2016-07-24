@@ -2,7 +2,7 @@ angular.module('matApp').directive('upload', ['$compile', function ($compiler) {
     return {
         restrict: 'E',
         templateUrl: 'ng/directives/dashboard/Uploads/uploads.tmpl.html',
-        controller: function ($scope, $state, $window, Upload, $location, $timeout, $http, $resource) {
+        controller: function ($scope, $state, $window, $document, Upload, $location, $timeout, $http, $resource) {
 
             $scope.saveUpload = function () {
 
@@ -16,18 +16,19 @@ angular.module('matApp').directive('upload', ['$compile', function ($compiler) {
             }
 
             function move() {
-              //var elem = angular.element(document.querySelector('[id="myBar"]'));
-               var elem = document.getElementById("myBar");
+                //var elem = angular.element(document.querySelector('[id="myBar"]'));
+                var elem = document.getElementById("myBar");
                 var width = 0;
                 var id = setInterval(frame, 50);
                 function frame() {
+                    $scope.width = false;
                     if (width >= 100) {
                         clearInterval(id);
-    angular.element(document.querySelector('[id="myP"]')).addClass("w3-text-green w3-animate-opacity");
-    angular.element(document.querySelector('[id="myP"]')).innerHTML = "Successfully uploaded 10 photos!";
-
+                        angular.element(document.querySelector('[id="myP"]')).addClass("w3-text-green w3-animate-opacity");
+                      //  angular.element(document.querySelector('[id="myP"]')).innerHTML = "Successfully uploaded 10 photos!";
+                        $scope.width = true;
                         //document.getElementById("myP").className = "w3-text-green w3-animate-opacity";
-                        //document.getElementById("myP").innerHTML = "Successfully uploaded 10 photos!";
+                        document.getElementById("myP").innerHTML = "Successfully uploaded 10 photos!";
                     } else {
                         width++;
                         elem.style.width = width + '%';
@@ -35,8 +36,12 @@ angular.module('matApp').directive('upload', ['$compile', function ($compiler) {
                         num = num.toFixed(0)
                         document.getElementById("demo").innerHTML = num;
                         document.getElementById("demo1").innerHTML = width * 1 + "%";
-                        
+                      //  angular.element(document.querySelector('[id="demo"]')).innerHTML = num;
+                        //angular.element('demo').html = num;
+
+                        // angular.element(document.querySelector('#demo1')).innerHTML = width  * 1 + "%";
                     }
+
                 }
             }
 

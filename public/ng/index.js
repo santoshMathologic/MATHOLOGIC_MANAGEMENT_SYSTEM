@@ -322,6 +322,22 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                         })
                     }
                 }
+            }).state('home.dashboard.upload', {
+                url: '/upload',
+                controller: 'uploadCtrl',
+                templateUrl: 'ng/directives/dashboard/Uploads/uploads.directive.html',
+                resolve: {
+                    loadMyFiles: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: 'matApp',
+                            files: [
+                                'ng/directives/dashboard/Uploads/uploads.js',
+                                'ng/controllers/uploads.js'
+
+                            ]
+                        })
+                    }
+                }
             })
 
             .state('home.Opportunity', {

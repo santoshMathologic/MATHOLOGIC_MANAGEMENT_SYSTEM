@@ -35,7 +35,9 @@ var app = angular
         'toaster',
         'ngAutocomplete',
         'smart-table',
-        'AxelSoft'
+        'AxelSoft',
+        'ngFileUpload',
+        'flow',
 
     ]);
 app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$httpProvider',
@@ -324,7 +326,7 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouter
                 }
             }).state('home.dashboard.upload', {
                 url: '/upload',
-                controller: 'uploadCtrl',
+                controller: 'uploadsCtrl',
                 templateUrl: 'ng/directives/dashboard/Uploads/uploads.directive.html',
                 resolve: {
                     loadMyFiles: function ($ocLazyLoad) {

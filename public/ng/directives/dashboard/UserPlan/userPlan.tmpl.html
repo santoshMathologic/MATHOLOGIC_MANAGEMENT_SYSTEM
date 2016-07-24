@@ -10,9 +10,16 @@
     </ul>
     <h1>Current User Plan : Not Selected</h1>
 
-    <ul ng-repeat="s in selectedUser">
-        <li>{{s.name}}</li>
+
+    <ul class="w3-ul w3-card-4" ng-repeat="s in selectedUser">
+        <li class="w3-padding-16">
+            <span onclick="this.parentElement.style.display='none'" class="w3-closebtn w3-padding">x</span>
+            <img src="../images/assets/user1-128x128.jpg" class="w3-left w3-circle" style="width:60px">
+            <span class="w3-xlarge">{{s.name}}</span><br>
+            <span>Web Designer</span>
+        </li>
     </ul>
+    
 
     <div class="col-lg-6">
         <div class="form-class">
@@ -26,6 +33,9 @@
     </div>
 
 
+
+    <br>
+    <br>
 
 
     <div class="row">
@@ -87,7 +97,7 @@
                                          
                                     </button>
 
-                                        <button class="light_green_btn_sm" data-toggle="modal" data-target="#myModal">
+                                        <button class="light_green_btn_sm" onclick="document.getElementById('id01').style.display='block'">
                                          <i class="fa fa-share-alt" aria-hidden="true"></i>
                                     </button>
 
@@ -157,82 +167,73 @@
             </div>
 
 
+
             <!--- Modal added !-->
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-animate-zoom w3-card-8">
+                    <header class="w3-container w3-teal">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
+                        <h2>Plan(Share /Send for Review)</h2>
+                    </header>
+                    <div class="w3-container">
 
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
+                        <ul class="nav nav-tabs" style="cursor:pointer">
+                            <li class="active"><a data-target="#send_review" data-toggle="tab">SEND FOR REVIEW</a></li>
+                            <li><a data-target="#share_plan" data-toggle="tab">Share Plan</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="send_review" class="tab-pane active">
+                                <br>
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Plan(Share /Send for Review)</h4>
-                        </div>
-                        <div class="modal-body">
+                                <h1>Send For Review</h1>
 
+                                <div class="col-lg-6">
+                                    <div class="form-class">
+                                        <angucomplete-alt text-searching="Searching User........." id="ddlHeadStation" placeholder="Search users................"
+                                            input-name="headstation" pause="400" selected-object="userSelected" remote-url-data-field=""
+                                            title-field="firstName" description-field="lastName" remote-api-handler="getUsers"
+                                            minlength="2" input-class="form-control custom_autoComplete" match-class="highlight"
+                                            field-required="true" auto-match="true">
 
-                            <ul class="nav nav-tabs" style="cursor:pointer">
-                                <li class="active"><a data-target="#send_review" data-toggle="tab">SEND FOR REVIEW</a></li>
-                                <li><a data-target="#share_plan" data-toggle="tab">Share Plan</a></li>
-
-
-                            </ul>
-
-
-                            <div class="tab-content">
-                                <div id="send_review" class="tab-pane active">
-                                    <br>
-                                    <form>
-                                        <h1>Send For Review</h1>
-
-
-
-
-
-                                    </form>
-
-
-                                </div>
-
-
-
-                                <div id="share_plan" class="tab-pane">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <form role="form" name="userForm" ng-class="submitClass" novalidate ng-submit="userForm.$valid && saveUser(userdetails)">
-
-                                            </form>
-                                        </div>
+                                        </angucomplete-alt>
                                     </div>
                                 </div>
-                                <!-- End of Tab !-->
+
+
+
+
+
+
                             </div>
 
 
 
+                            <div id="share_plan" class="tab-pane">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form role="form" name="userForm" ng-class="submitClass" novalidate ng-submit="userForm.$valid && saveUser(userdetails)">
 
-
-
-
-
-
-
-
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Tab !-->
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
+
+
+
+
+
                     </div>
 
                 </div>
             </div>
 
-            <!-- -----!-->
+
 
 
 
         </div>
+
+
     </div>
-
-
-</div>
